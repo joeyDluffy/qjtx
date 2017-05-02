@@ -52,9 +52,11 @@ public class login extends ActionSupport {
 						reviewopid = u.getUserid();
 						ActionContext.getContext().getSession().put("vkop_user", username);
 						this.success = true;
-						retry = -1;
-
+						return SUCCESS;
 					}
+					retry = -1;
+					this.success = false;
+					return ERROR;
 				}
 			} catch (Exception e) {
 				retry--;

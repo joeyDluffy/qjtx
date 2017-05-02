@@ -1,7 +1,5 @@
 $(document).ready(function(){
-	$("#storename").text(storename + " : " + productid);
-	$("#floor").text("楼层："+floor);
-	$("#saleday").attr('value',new Date().Format("yyyy-MM-dd"));
+	$("#saleday").text('日期：' + new Date().Format("yyyy-MM-dd"));
 	pdatalist = new Array();
 	var ref = '';  
 	if (document.referrer.length > 0) {  
@@ -45,113 +43,9 @@ $(document).ready(function(){
 	        	hideLoader();
 	        });
 		}
-//	    lrz(this.files[0], {width: 800})
-//	        .then(function (rst) {
-//	            // 把处理的好的图片给用户看看呗
-////	            var img = new Image();
-////	            img.src = rst.base64;
-////
-////	            img.onload = function () {
-////	                document.body.appendChild(img);
-////	            };
-////	            return rst;
-//	        	pdata1 = rst;
-////	        	pdata.append('fileLen', rst.fileLen);
-////	        	pdata = rst.file;
-//	        })
-//	        .catch(function (err) {
-//	            // 万一出错了，这里可以捕捉到错误信息
-//	            // 而且以上的then都不会执行
-//
-//	            alert(err);
-//		    	$("#saleImg1").attr("value","");
-//	        })
-//	        .always(function () {
-//	            // 不管是成功失败，这里都会执行
-//	        });
+
 	});
-//	document.querySelector('#saleImg2').addEventListener('change', function () {
-//	    // this.files[0] 是用户选择的文件
-//	    lrz(this.files[0], {width: 800})
-//	        .then(function (rst) {
-//	            // 把处理的好的图片给用户看看呗
-////	            var img = new Image();
-////	            img.src = rst.base64;
-////
-////	            img.onload = function () {
-////	                document.body.appendChild(img);
-////	            };
-////	            return rst;
-//	        	pdata2 = rst;
-////	        	pdata.append('fileLen', rst.fileLen);
-////	        	pdata = rst.file;
-//	        })
-//	        .catch(function (err) {
-//	            // 万一出错了，这里可以捕捉到错误信息
-//	            // 而且以上的then都不会执行
-//
-//	            alert(err);
-//		    	$("#saleImg2").attr("value","");
-//	        })
-//	        .always(function () {
-//	            // 不管是成功失败，这里都会执行
-//	        });
-//	});
-//	document.querySelector('#saleImg3').addEventListener('change', function () {
-//	    // this.files[0] 是用户选择的文件
-//	    lrz(this.files[0], {width: 800})
-//	        .then(function (rst) {
-//	            // 把处理的好的图片给用户看看呗
-////	            var img = new Image();
-////	            img.src = rst.base64;
-////
-////	            img.onload = function () {
-////	                document.body.appendChild(img);
-////	            };
-////	            return rst;
-//	        	pdata3 = rst;
-////	        	pdata.append('fileLen', rst.fileLen);
-////	        	pdata = rst.file;
-//	        })
-//	        .catch(function (err) {
-//	            // 万一出错了，这里可以捕捉到错误信息
-//	            // 而且以上的then都不会执行
-//
-//	            alert(err);
-//		    	$("#saleImg3").attr("value","");
-//	        })
-//	        .always(function () {
-//	            // 不管是成功失败，这里都会执行
-//	        });
-//	});
-//	document.querySelector('#saleImg4').addEventListener('change', function () {
-//	    // this.files[0] 是用户选择的文件
-//	    lrz(this.files[0], {width: 800})
-//	        .then(function (rst) {
-//	            // 把处理的好的图片给用户看看呗
-////	            var img = new Image();
-////	            img.src = rst.base64;
-////
-////	            img.onload = function () {
-////	                document.body.appendChild(img);
-////	            };
-////	            return rst;
-//	        	pdata4 = rst;
-////	        	pdata.append('fileLen', rst.fileLen);
-////	        	pdata = rst.file;
-//	        })
-//	        .catch(function (err) {
-//	            // 万一出错了，这里可以捕捉到错误信息
-//	            // 而且以上的then都不会执行
-//
-//	            alert(err);
-//		    	$("#saleImg4").attr("value","");
-//	        })
-//	        .always(function () {
-//	            // 不管是成功失败，这里都会执行
-//	        });
-//	});
-//	
+
 	$("#clear").bind(
 			"click", function() {
 				pdatalist.shift();
@@ -204,44 +98,7 @@ $(document).ready(function(){
 		    if (pdatalist ==null || pdatalist.length<1){
 				return;
 		    }
-//		    if ($("#saleImg1").attr("value") == $("#saleImg2").attr("value") 
-//		    		|| $("#saleImg1").attr("value") == $("#saleImg3").attr("value")
-//		    		|| $("#saleImg1").attr("value")==$("#saleImg4").attr("value")) {
-//		    	$("#saleImg2").attr("value","");
-//		    	$("#saleImg3").attr("value","");
-//		    	$("#saleImg4").attr("value","");
-//		    	alert("上传文件重复！"); 
-//				return;
-//		    }
-//		    
-//		    if($("#saleImg2").attr("value") != null && $("#saleImg2").attr("value")!=""){
-//		    	if ($("#saleImg2").attr("value")==$("#saleImg3").attr("value")
-//			    		|| $("#saleImg2").attr("value")==$("#saleImg4").attr("value")) {
-//			    	$("#saleImg3").attr("value","");
-//			    	$("#saleImg4").attr("value","");
-//			    	alert("上传文件重复！"); 
-//					return;
-//			    }
-//		    }
-//		    if($("#saleImg3").attr("value") != null && $("#saleImg3").attr("value")!=""){
-//		    	if ($("#saleImg3").attr("value")==$("#saleImg4").attr("value")) {
-//			    	$("#saleImg4").attr("value","");
-//			    	alert("上传文件重复！"); 
-//					return;
-//			    }
-//		    }
-//		    var i2base;
-//		    var i3base;
-//		    var i4base;
-//		    if(pdata2 != null && pdata2 != ""){
-//		    	i2base = encodeURI(encodeURI(pdata2.base64));
-//		    }
-//		    if(pdata3 != null && pdata3 != ""){
-//		    	i3base = encodeURI(encodeURI(pdata3.base64));
-//		    }
-//		    if(pdata4 != null && pdata4 != ""){
-//		    	i4base = encodeURI(encodeURI(pdata4.base64));
-//		    }
+
 			showLoader();
 //			alert("bingo");
 			var submitData={

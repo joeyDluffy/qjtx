@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+<classPathEntry location="/JZ/JZDEV/WORKSPACE/VK_JZ_001/WebContent/WEB-INF/lib/sqljdbc4.jar" />
+    <context id="v_caiwu" >
+    <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver" connectionURL="jdbc:sqlserver://10.2.1.73:1433;DatabaseName=VANKE_DATA" userId="MoveitUser" password="Moveit" />
+    <javaModelGenerator targetPackage="qjtx.dao" targetProject="VK_JZ_001" />
+    <sqlMapGenerator targetPackage="qjtx.dao" targetProject="VK_JZ_001" />
+    <javaClientGenerator targetPackage="qjtx.dao" targetProject="VK_JZ_001" type="XMLMAPPER" />
+    <table tableName="tab*" domainObjectName="v_caiwu" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        <property name="useActualColumnNames" value="true"/>
+    </table>
+  </context>
+</generatorConfiguration>

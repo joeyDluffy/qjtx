@@ -104,10 +104,6 @@ $(document).ready(function(){
 			var submitData={
 					saleid:saleid,
 					imageList:pdatalist,
-//					saleImage1Base64:encodeURI(encodeURI(pdata1.base64)),
-//					saleImage2Base64:i2base,
-//					saleImage3Base64:i3base,
-//					saleImage4Base64:i4base,
 					total:total,
 					qty:qty,
 					saleday:saleday
@@ -118,13 +114,8 @@ $(document).ready(function(){
 		        {
 		        	type:"POST",
 					async: true,
-//		            url:'saveSalesData'+encodeURI(encodeURI(saleid))
-//					+"&total="+encodeURI(encodeURI(total))+"&qty="+encodeURI(encodeURI(qty))
-//					+"&saleday="+encodeURI(encodeURI(saleday))
 					url:'saveSalesData',
-//		            fileElementId:'saleImg',
 		            dataType: "json",
-//		            data:submitData,
 		            data:JSON.stringify(jsondata),
 		            contentType:"application/json",
 		            success: function (data)  
@@ -137,7 +128,6 @@ $(document).ready(function(){
 					    {
 					        div.removeChild(div.firstChild);
 					    }
-//						document.querySelector('#imageshow img').remove();
 						hideLoader();
 						alert('提交成功！');
 						$("#saleImg1").attr('value','');

@@ -23,12 +23,12 @@ public class LoginInterceptor extends AbstractInterceptor {
   
     	ActionContext ctx = invocation.getInvocationContext();  
     	Map session = ctx.getSession(); 
-        String user = (String) session.get("vkop_username");  
+        String user = (String) session.get("qjop_user");  
   
         if (session != null && user != null) {  
             return invocation.invoke();  
         } 
-        ctx.put("tip", "你还没有登录");  
+        ctx.put("tip", "您还没有登录");  
         return Action.LOGIN;  
     }  
   
@@ -42,10 +42,10 @@ public class LoginInterceptor extends AbstractInterceptor {
   
         String actionName = invocation.getProxy().getActionName();  
         if (StringUtils.isNotBlank(actionName)) {  
-            url = url + "/vk/reportData.html";  
+            url = url + "/qjData.html";  
         }  
   
-        session.put("vkop_main", url);  
+        session.put("qjtx_main", url);  
     }  
   
     //... getter & setter methods  

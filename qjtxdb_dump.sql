@@ -50,7 +50,7 @@ DROP TABLE IF EXISTS `qj_orders`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `qj_orders` (
-  `orderid` varchar(20) NOT NULL,
+  `orderid` int(11) NOT NULL AUTO_INCREMENT,
   `orderdate` date DEFAULT NULL,
   `ordertime` datetime DEFAULT NULL,
   `orderprice` double DEFAULT NULL,
@@ -71,9 +71,9 @@ CREATE TABLE `qj_orders` (
   `service_type` varchar(45) DEFAULT NULL COMMENT '业务类型包括（broadband、contractPhone、depositFee）宽带业务（broadband）合约机（contractPhone）存费送费（depositFee）',
   `installation_address` varchar(200) DEFAULT NULL COMMENT '安装地址',
   `package_price` double DEFAULT NULL COMMENT '优惠信息',
-  `attach_info` varchar(200) DEFAULT NULL,
-  `mix_user_id` varchar(100) DEFAULT NULL,
-  `item_id` varchar(45) DEFAULT NULL,
+  `attach_info` varchar(200) DEFAULT NULL COMMENT '商家附加信息',
+  `mix_user_id` varchar(100) DEFAULT NULL COMMENT '买家混淆user ID',
+  `item_id` varchar(45) DEFAULT NULL COMMENT '商品ID',
   `id_images` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`orderid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -97,4 +97,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-02 18:49:50
+-- Dump completed on 2017-05-03 17:35:44

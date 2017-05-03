@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>七宝万科销售管理</title>
+<title>奇杰通信订单管理</title>
 <link rel='stylesheet' href='src/lib/bootstrap.min.css'>    
 <style type="text/css">
 .form-bg {
@@ -163,7 +163,7 @@
 		<div class="row">
 			<div class="col-md-offset-3 col-md-6">
 				<form class="form-horizontal" method="post" action="login">
-					<span class="heading">七宝万科广场销售运营管理</span>
+					<span class="heading">奇杰通信订单管理</span>
 					<div class="form-group">
 						<input type="text" class="form-control" id="inputEmail3" name ="username"
 							placeholder="用户名"> <i class="fa fa-user"></i>

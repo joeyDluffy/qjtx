@@ -8,15 +8,15 @@ $(document).ready(function(){
 	$("select[name='fee']")[0].selectedIndex = -1;
 	$(function(){  
         var packagename1 = ["请选择..", "4G签约赠话费", "资费签约"];
-        var packagename1a = ["请选择..", "58元", "88元", "108元", "128元", "158元", "188元", "228元", "288元"];     
-        var packagename1b = ["请选择..", "58元", "88元", "108元", "138元", "158元"];
+        var packagename1a = [ "请选择..","58元", "88元", "108元", "128元", "158元", "188元", "228元", "288元"];     
+        var packagename1b = [ "请选择..","58元", "88元", "108元", "138元", "158元"];
         var packagename1aa = ["18个月"];     
         var packagename1bb = ["12个月"];
-        var packagename2 = ["请选择..", "裸宽", "个人承诺消费送宽带", "家庭承诺消费送宽带"];  
-        var packagename2a = ["请选择..", "20M", "50M", "100M", "200M"];     
-        var packagename2b = ["请选择..", "78元", "108元", "128元", "158元", "188元"];
-        var packagename2c = ["请选择..", "108元", "188元", "268元", "288元"];
-        var packagename2aa = ["1年期", "两年期"];     
+        var packagename2 = ["请选择..","裸宽", "个人承诺消费送宽带", "家庭承诺消费送宽带"];  
+        var packagename2a = ["请选择..","20M", "50M", "100M", "200M"];     
+        var packagename2b = [ "请选择..","78元", "108元", "128元", "158元", "188元"];
+        var packagename2c = [ "请选择..","108元", "188元", "268元", "288元"];
+        var packagename2aa = ["请选择..","1年期", "2年期"];     
         var packagename2bb = ["12个月"];
         $("select[name='packagename']").change(function() {  
         	$("select[name='fee']").empty();
@@ -70,7 +70,11 @@ $(document).ready(function(){
                     $("select[name='contractperiod']").append(option);  
                 } 
             }
-            
+            $("select[name='contractperiod']").selectmenu("refresh");
+            $("select[name='fee']").selectmenu("refresh");
+//            $("select[name='fee']")[0].selectedIndex = -1;
+//            $("select[name='contractperiod']")[0].selectedIndex = -1;
+//            alert($("select[name='packagename']").val());
         });  
         $("select[name='servicetype']").change(function() {  
             //被选中的option  
@@ -91,8 +95,12 @@ $(document).ready(function(){
                 } 
                   
             }
-        	$("select[name='packagename']")[0].selectedIndex = -1;
-            $("select[name='packagename']").val("请选择..");
+            $("select[name='packagename']").selectmenu("refresh");
+            $("select[name='contractperiod']").selectmenu("refresh");
+            $("select[name='fee']").selectmenu("refresh");
+            
+//        	$("select[name='packagename']")[0].selectedIndex = 0;
+//        	alert($("select[name='packagename']").val());
         });  
                           
     });  

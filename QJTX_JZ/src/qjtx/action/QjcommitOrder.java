@@ -13,6 +13,8 @@ import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import qjtx.pojo.Qjorderdata;
+import qjtx.pojo.Qjorders;
 import qjtx.pojo.SalesData;
 import qjtx.pojo.SalesDataDay;
 import qjtx.service.QjorderService;
@@ -34,14 +36,15 @@ public class QjcommitOrder extends ActionSupport {
 	@Autowired
 	QjorderService qjorderService;
 	
-	private SalesData salesData;
+	private Qjorderdata qjorderdata;
 	
-	public SalesData getSalesData() {
-		return salesData;
+	
+	public Qjorderdata getQjorderdata() {
+		return qjorderdata;
 	}
 
-	public void setSalesData(SalesData salesData) {
-		this.salesData = salesData;
+	public void setQjorderdata(Qjorderdata qjorderdata) {
+		this.qjorderdata = qjorderdata;
 	}
 
 	@Override
@@ -54,7 +57,7 @@ public class QjcommitOrder extends ActionSupport {
 		if (!targetFile.mkdirs()) {
 			targetFile.mkdirs();
 		}
-		SalesDataDay sdd = new SalesDataDay();
+		Qjorders qjorder = new Qjorders();
 		int retry = 3;
 		int res = 0;
 		Date updateTime = new Date();
@@ -62,53 +65,33 @@ public class QjcommitOrder extends ActionSupport {
 		SimpleDateFormat formatDay = new SimpleDateFormat("yyyy-MM-dd");
 		String imgFileString = "";
 		// 遍历所有上传图片
-		for (int i = 0; i < salesData.getImageList().size(); i++) {
-			String saleImageBase64 = ((String) salesData.getImageList().get(i)).replace("data:image/jpeg;base64,", "");
-			String imgFileName = salesData.getSaleid() + "--" + format.format(updateTime) + "_0" + i + ".jpg";
+		for (int i = 0; i < qjorderdata.getImageList().size(); i++) {
+			String saleImageBase64 = ((String) qjorderdata.getImageList().get(i)).replace("data:image/jpeg;base64,", "");
+			String imgFileName = qjorderdata.getCname()+ "--" + format.format(updateTime) + "_0" + i + ".jpg";
 			GenerateImage(saleImageBase64, saleImageFiles + "/" + imgFileName);
 			imgFileString = imgFileString + imgFileName + ";";
 		}
 
-		// String imgFile1 = saleid + "--" + format.format(updateTime) +
-		// "_01.jpg";
-		// String imgFile = imgFile1;
-		// saleImage1Base64 =
-		// saleImage1Base64.replace("data:image/jpeg;base64,", "");
-		// // System.out.println("imagebase64: "+saleImageBase64);
-		// GenerateImage(saleImage1Base64, saleImageFiles + "/" + imgFile1);
-		// if (saleImage2Base64 != null && !"".equals(saleImage2Base64)) {
-		// String imgFile2 = saleid + "--" + format.format(updateTime) +
-		// "_02.jpg";
-		// saleImage2Base64 =
-		// saleImage2Base64.replace("data:image/jpeg;base64,", "");
-		// GenerateImage(saleImage2Base64, saleImageFiles + "/" + imgFile2);
-		// imgFile = imgFile + ";" + imgFile2;
-		// }
-		// if (saleImage3Base64 != null && !"".equals(saleImage3Base64)) {
-		// String imgFile3 = saleid + "--" + format.format(updateTime) +
-		// "_03.jpg";
-		// saleImage3Base64 =
-		// saleImage3Base64.replace("data:image/jpeg;base64,", "");
-		// GenerateImage(saleImage3Base64, saleImageFiles + "/" + imgFile3);
-		// imgFile = imgFile + ";" + imgFile3;
-		// }
-		// if (saleImage4Base64 != null && !"".equals(saleImage4Base64)) {
-		// String imgFile4 = saleid + "--" + format.format(updateTime) +
-		// "_04.jpg";
-		// saleImage4Base64 =
-		// saleImage4Base64.replace("data:image/jpeg;base64,", "");
-		// GenerateImage(saleImage4Base64, saleImageFiles + "/" + imgFile4);
-		// imgFile = imgFile + ";" + imgFile4;
-		// }
-		// sdd.setImgfile(imgFile);
-		sdd.setImgfile(imgFileString);
-		sdd.setSaleid(salesData.getSaleid());
-		sdd.setUpdatetime(updateTime);
+
 		try {
-			sdd.setSaleday(formatDay.parse(salesData.getSaleday()));
-			sdd.setSaletotal(Double.valueOf(salesData.getTotal()));
-			sdd.setQty(salesData.getQty());
-			sdd.setReviewed(0);
+			qjorder.setId_images(imgFileString);
+			qjorder.setAttach_info(qjorderdata.getMerchant_order_id());	
+			qjorder.setOrderprice(Double.valueOf(qjorderdata.getOrderprice()));
+			qjorder.setMix_user_id(qjorderdata.getMix_user_id());
+			qjorder.setOrdertime(updateTime);
+			qjorder.setService_type(qjorderdata.getService_type());
+			qjorder.setPackage_name(qjorderdata.getPackage_name());
+			qjorder.setMonthly_fee(Double.valueOf(qjorderdata.getMonthly_fee()));
+			qjorder.setBroadband_rat(qjorderdata.getBroadband_rat());
+			qjorder.setPackage_price(Double.valueOf(qjorderdata.getPackage_price()));
+			qjorder.setContract_period(qjorderdata.getContract_period());
+			qjorder.setPackage_details(qjorderdata.getPackage_details());
+			qjorder.setMobile(qjorderdata.getMobile());
+			qjorder.setId_number(qjorderdata.getId_number());
+			qjorder.setCname(qjorderdata.getCname());
+			qjorder.setInstallation_address(qjorderdata.getInstallation_address());
+			qjorder.setOperatestatus(0);
+			
 		} catch (Exception e) {
 
 		}
@@ -119,93 +102,21 @@ public class QjcommitOrder extends ActionSupport {
 					Thread.sleep(300);
 				}
 				if (retry > 0) {
-//					res = salesService.saveSalesDataDay(sdd);
+					res = qjorderService.commidOrder(qjorder);
 					retry = -1;
 				}
 			} catch (Exception e) {
 				retry--;
 			}
 		}
+		//阿里订单生成
+		
+		
+		
 		return SUCCESS;
 
 	}
 
-	// public String getSaleid() {
-	// return saleid;
-	// }
-	//
-	// public void setSaleid(String saleid) {
-	// this.saleid = saleid;
-	// }
-	//
-	// public String getTotal() {
-	// return total;
-	// }
-	//
-	// public void setTotal(String total) {
-	// this.total = total;
-	// }
-	//
-	// public String getSaleday() {
-	// return saleday;
-	// }
-	//
-	// public void setSaleday(String saleday) {
-	// this.saleday = saleday;
-	// }
-	//
-	// public int getQty() {
-	// return qty;
-	// }
-	//
-	// public void setQty(int qty) {
-	// this.qty = qty;
-	// }
-
-
-	// private String saleid;
-	// private String total;
-	// private String saleday;
-	// private int qty;
-	// private List imageList;
-
-
-	// private String saleImage1Base64;
-	// private String saleImage2Base64;
-	// private String saleImage3Base64;
-	// private String saleImage4Base64;
-
-	// public String getSaleImage2Base64() {
-	// return saleImage2Base64;
-	// }
-	//
-	// public void setSaleImage2Base64(String saleImage2Base64) {
-	// this.saleImage2Base64 = saleImage2Base64;
-	// }
-	//
-	// public String getSaleImage3Base64() {
-	// return saleImage3Base64;
-	// }
-	//
-	// public void setSaleImage3Base64(String saleImage3Base64) {
-	// this.saleImage3Base64 = saleImage3Base64;
-	// }
-	//
-	// public String getSaleImage4Base64() {
-	// return saleImage4Base64;
-	// }
-	//
-	// public void setSaleImage4Base64(String saleImage4Base64) {
-	// this.saleImage4Base64 = saleImage4Base64;
-	// }
-	//
-	// public String getSaleImage1Base64() {
-	// return saleImage1Base64;
-	// }
-	//
-	// public void setSaleImage1Base64(String saleImage1Base64) {
-	// this.saleImage1Base64 = saleImage1Base64;
-	// }
 
 	// base64字符串转化成图片
 	public static boolean GenerateImage(String imgStr, String fpath) { // 对字节数组字符串进行Base64解码并生成图片

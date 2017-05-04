@@ -6,11 +6,8 @@ function flushdata()
 	        {
 	        	type:"GET",
 				async: false,
-	//            url:'saveSalesData'+encodeURI(encodeURI(saleid))
-	//			+"&total="+encodeURI(encodeURI(total))+"&qty="+encodeURI(encodeURI(qty))
-	//			+"&saleday="+encodeURI(encodeURI(saleday))
 				url:'reportSalesDataForOp?saledaySelect='+selectDate,
-	//            fileElementId:'saleImg',
+
 	            dataType: "json",
 	            success: function (data)  
 	            {		            	
@@ -66,7 +63,7 @@ function refreshTable() {
 		{title:"点击审核", field:"reviewed", align:"center", formatter:"tickCross",editable:true, 
 			onClick:function(e, cell, val, row)
 			{
-//				alert(cell.data("value"));
+
 				if(val != 1)
 					{
 						var cid = row['cid'];
@@ -76,47 +73,29 @@ function refreshTable() {
 							var mymessage=confirm("确认提交审核？");  
 						    if(mymessage==true)  
 						    {   
-//						    	showLoader();
 						    	var submitData={
 										cid:cid,
 										saletotal:saletotal,
 										qty:qty,
 										reviewopid:reviewopid
 									    }; 
-//						    	cell.data("value", 1);
-						    	
-//						    	$("#qbvk-table").tabulator("setData");
-//						    	var rowData = row.data("data");
-//						    	rowData[cell.data("field")] = 1;
-//						    	cell.html(self._formatCell(cell.data("formatter"), 1, rowData, cell, row))
-//						    	.css({"padding":"4px"});
-//						    	$("#qbvk-table").tabulator("redraw");
 								$.ajax
 							    (
 							        {
 							        	type:"GET",
 										async: false,
 										url:'reviewSalesData',
-							//            fileElementId:'saleImg',
 							            dataType: "json",
 							            data:submitData,
 							            success: function (data)  
 							            {		            	
-//							            	hideLoader();
-//							            	cell.data("value", 1);
-//							            	window.location.reload();
-//							            	flushdata();
-//							            	refreshTable();
+
 							            	$("#qbvk-table").tabulator("setData");
 							            }
 							    
 							        }
 							    );
-//								hideLoader();
-//								cell.data("value", 1);
-//								$(window).resize(function(){
-//									$("#qbvk-table").tabulator("redraw");
-//								});
+
 						    }  
 						    else if(mymessage==false)  
 						    {  

@@ -1,6 +1,106 @@
 $(document).ready(function(){
-	$("#saleday").text('日期：' + new Date().Format("yyyy-MM-dd"));
+//	$("#saleday").text('日期：' + new Date().Format("yyyy-MM-dd"));
+	
+	//套餐初始化
+	$("select[name='servicetype']").val("select");
+	$("select[name='packagename']")[0].selectedIndex = -1;
+	$("select[name='contractperiod']")[0].selectedIndex = -1;
+	$("select[name='fee']")[0].selectedIndex = -1;
+	$(function(){  
+        var packagename1 = ["请选择..", "4G签约赠话费", "资费签约"];
+        var packagename1a = ["请选择..", "58元", "88元", "108元", "128元", "158元", "188元", "228元", "288元"];     
+        var packagename1b = ["请选择..", "58元", "88元", "108元", "138元", "158元"];
+        var packagename1aa = ["18个月"];     
+        var packagename1bb = ["12个月"];
+        var packagename2 = ["请选择..", "裸宽", "个人承诺消费送宽带", "家庭承诺消费送宽带"];  
+        var packagename2a = ["请选择..", "20M", "50M", "100M", "200M"];     
+        var packagename2b = ["请选择..", "78元", "108元", "128元", "158元", "188元"];
+        var packagename2c = ["请选择..", "108元", "188元", "268元", "288元"];
+        var packagename2aa = ["1年期", "两年期"];     
+        var packagename2bb = ["12个月"];
+        $("select[name='packagename']").change(function() {  
+        	$("select[name='fee']").empty();
+            $("select[name='contractperiod']").empty(); 
+            var selected_value = $(this).val(); 
+            if(selected_value == '4G签约赠话费'){
+            	
+                //循环添加  
+                for(var i = 0; i < packagename1a.length; i++) {  
+                    var option = $("<option>").val(packagename1a[i]).text(packagename1a[i]);  
+                    $("select[name='fee']").append(option);  
+                }  
+                for(var i = 0; i < packagename1aa.length; i++) {  
+                    var option = $("<option>").val(packagename1aa[i]).text(packagename1aa[i]);  
+                    $("select[name='contractperiod']").append(option);  
+                }
+            } else if(selected_value == "资费签约"){  
+            	for(var i = 0; i < packagename1b.length; i++) {  
+                    var option = $("<option>").val(packagename1b[i]).text(packagename1b[i]);  
+                    $("select[name='fee']").append(option);  
+                }  
+                for(var i = 0; i < packagename1bb.length; i++) {  
+                    var option = $("<option>").val(packagename1bb[i]).text(packagename1bb[i]);  
+                    $("select[name='contractperiod']").append(option);  
+                } 
+            } else if(selected_value == "裸宽"){  
+            	for(var i = 0; i < packagename2a.length; i++) {  
+                    var option = $("<option>").val(packagename2a[i]).text(packagename2a[i]);  
+                    $("select[name='fee']").append(option);  
+                }  
+                for(var i = 0; i < packagename2aa.length; i++) {  
+                    var option = $("<option>").val(packagename2aa[i]).text(packagename2aa		[i]);  
+                    $("select[name='contractperiod']").append(option);  
+                } 
+            } else if(selected_value == "个人承诺消费送宽带"){  
+            	for(var i = 0; i < packagename2b.length; i++) {  
+                    var option = $("<option>").val(packagename2b[i]).text(packagename2b[i]);  
+                    $("select[name='fee']").append(option);  
+                }  
+                for(var i = 0; i < packagename2bb.length; i++) {  
+                    var option = $("<option>").val(packagename2bb[i]).text(packagename2bb[i]);  
+                    $("select[name='contractperiod']").append(option);  
+                } 
+            } else if(selected_value == "家庭承诺消费送宽带"){  
+            	for(var i = 0; i < packagename2c.length; i++) {  
+                    var option = $("<option>").val(packagename2c[i]).text(packagename2c[i]);  
+                    $("select[name='fee']").append(option);  
+                }  
+                for(var i = 0; i < packagename2bb.length; i++) {  
+                    var option = $("<option>").val(packagename2bb[i]).text(packagename2bb[i]);  
+                    $("select[name='contractperiod']").append(option);  
+                } 
+            }
+            
+        });  
+        $("select[name='servicetype']").change(function() {  
+            //被选中的option  
+            var selected_value = $(this).val();  
+            $("select[name='packagename']").empty();  
+            $("select[name='fee']").empty();
+            $("select[name='contractperiod']").empty();  
+            if(selected_value == "终端活动"){  
+            	for(var i = 0; i < packagename1.length; i++) {  
+                    var option = $("<option>").val(packagename1[i]).text(packagename1[i]);  
+                    $("select[name='packagename']").append(option);  
+                } 
+                  
+            } else if(selected_value == "移动宽带"){ 
+            	for(var i = 0; i < packagename2.length; i++) {  
+                    var option = $("<option>").val(packagename2[i]).text(packagename2[i]);  
+                    $("select[name='packagename']").append(option);  
+                } 
+                  
+            }
+        	$("select[name='packagename']")[0].selectedIndex = -1;
+            $("select[name='packagename']").val("请选择..");
+        });  
+                          
+    });  
+	
+	
+		
 	pdatalist = new Array();
+	//url参数获取 token
 	var ref = '';  
 	if (document.referrer.length > 0) {  
 
@@ -13,8 +113,7 @@ $(document).ready(function(){
 	ref = opener.location.href;  
 	 		alert(ref);
 	}  
-
-	 } catch (e) {}
+	} catch (e) {}
 	document.querySelector('#saleImg1').addEventListener('change', function () {
 	    // this.files[0] 是用户选择的文件
 		showLoader();

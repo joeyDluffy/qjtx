@@ -21,7 +21,6 @@ public class Qjlogin extends ActionSupport {
 		if (s == null) {
 			return null;
 		}
-
 		return (new sun.misc.BASE64Encoder()).encode(s.getBytes());
 	}
 

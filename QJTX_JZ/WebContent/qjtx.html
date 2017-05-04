@@ -15,12 +15,23 @@
 		<script src="sc.js?v=20170502"></script>
 		<script src="dist/lrz.bundle.js?v=2"></script>
 		<script>
-			var pdata1;
-			var pdata2;
-			var pdata3;
-			var pdata4;
 			var pdatalist;
-
+			var item_id;
+			var merchant_order_id;
+			var orderprice;
+			var mix_user_id;
+			var ordertime;
+			var service_type;
+			var package_name;
+			var monthly_fee;
+			var broadband_rat;
+			var package_price;
+			var contract_period;
+			var package_details;
+			var mobile;
+			var id_number;
+			var cname;
+			var installation_address;
 		</script>
 
 	</head>
@@ -49,9 +60,22 @@
  				<div class="ui-text-vanke">
 					<div class="ui-text-vankesaletotal">
 						<p>
+							选择续约套餐类型：
+						</p>
+						<select id="servicetype" name="servicetype">  
+				            <option value="select">请选择..</option>     
+				            <option value="终端活动">终端活动</option>     
+				            <option value="移动宽带">移动宽带</option>          
+				        </select>  
+				        <p>
 							选择套餐：
 						</p>
-						<input type="number" id="saleid"></input>
+				        <select name="packagename">  
+				        </select>
+				        <select name="fee">  
+				        </select>
+				        <select name="contractperiod">  
+				        </select>
 					</div>
 				</div>
 <!--				<div class="ui-text-vanke">

@@ -14,6 +14,7 @@ import qjtx.dao.SalesDataStoreMapper;
 import qjtx.dao.VReportSalesDataMapper;
 import qjtx.pojo.Operationuser;
 import qjtx.pojo.Qjoperaters;
+import qjtx.pojo.Qjorders;
 import qjtx.pojo.SalesDataDay;
 import qjtx.pojo.SalesDataStore;
 import qjtx.pojo.VReportSalesData;
@@ -43,4 +44,18 @@ public class QjmanageService {
 		return res;
 	}
 	
+	
+	public List<Qjorders> selectByDate(Date saleday) {
+		List<Qjorders> ss = qjordersMapper.selectByDate(saleday);
+		return ss;
+
+	}
+
+	
+	public int operateOrders(Qjorders qjorders) {
+		int ret = 0;
+		ret = qjordersMapper.operateByOrderid(qjorders);
+		return ret;
+
+	}
 }

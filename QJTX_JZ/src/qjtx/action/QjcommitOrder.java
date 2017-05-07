@@ -21,6 +21,12 @@ import qjtx.service.QjorderService;
 import qjtx.service.SalesService;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.taobao.api.DefaultTaobaoClient;
+import com.taobao.api.TaobaoClient;
+import com.taobao.api.internal.util.StringUtils;
+import com.taobao.api.request.AlibabaAliqinTradeCreateRequest;
+import com.taobao.api.request.AlibabaAliqinTradeCreateRequest.Exproperty;
+import com.taobao.api.response.AlibabaAliqinTradeCreateResponse;
 
 import sun.misc.BASE64Decoder;
 
@@ -110,7 +116,39 @@ public class QjcommitOrder extends ActionSupport {
 			}
 		}
 		//阿里订单生成
-		
+		TaobaoClient client = new DefaultTaobaoClient("https://eco.taobao.com/router/rest", "23759189", "62b83473b750a7fe07ab8bdb5fb42ba5");
+		//sandbox
+		//TaobaoClient client = new DefaultTaobaoClient("https://gw.api.tbsandbox.com/router/rest", "23759189", "62b83473b750a7fe07ab8bdb5fb42ba5");
+		AlibabaAliqinTradeCreateRequest req = new AlibabaAliqinTradeCreateRequest();
+		Exproperty obj1 = new Exproperty();
+		obj1.setMonthlyFee("78.89");
+		obj1.setBroadbandRate("100M");
+		obj1.setEffectiveDate("2017年11月11号零点");
+		obj1.setContractPeriod("2年");
+		obj1.setPackageDetails("套餐详情描述");
+		obj1.setPackageName("套餐名称");
+		obj1.setOperators("运营商名称");
+		obj1.setProvince("浙江");
+		obj1.setBroadbandAccount("宽带账号");
+		obj1.setMobile("手机号码");
+		obj1.setIdNumber("身份证号");
+		obj1.setName("机主姓名");
+		obj1.setServiceType("broadband");
+		obj1.setSource("detail");
+		obj1.setInstallationAddress("浙江杭州xxxxx");
+		obj1.setPackagePrice("89.89");
+		obj1.setPreferentialInfo("9.5折，送200元话费");
+		obj1.setAttachInfo("id:898");
+		req.setExProperty(obj1);
+		//参数解析传入：用户混淆id，商品id，总价，插件id
+		req.setMixUserId("AAHrb-fwAAgOrLpFIt9ATdjc");
+		req.setItemId(100889988L);
+		req.setTotalPrice("1024.55");
+		req.setExpiryDate(StringUtils.parseDateTime("2016-07-29 12:12:12"));
+		req.setPluginInstanceId(60L);
+		req.setMerchantOrderId("23678698");
+		AlibabaAliqinTradeCreateResponse rsp = client.execute(req);
+		System.out.println(rsp.getBody());
 		
 		
 		return SUCCESS;

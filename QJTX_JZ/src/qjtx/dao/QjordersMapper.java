@@ -46,9 +46,11 @@ public interface QjordersMapper {
 	 */
 	int updateByPrimaryKey(Qjorders record);
 
+	
+	
 	/**
-	 * 日期为空时取�?30天内的订�?
-	 * 日期条件为�?�择日期�?后的�?有订�?
+	 * 日期为空时取�?30天内的订�?
+	 * 日期条件为�?�择日期�?后的�?有订�?
 	 */
     List<Qjorders> selectByDate(@Param("saleday")Date saleday);
     

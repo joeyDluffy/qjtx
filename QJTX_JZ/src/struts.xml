@@ -24,7 +24,7 @@
 		</action>
 		
 		<!-- qjtx actions -->
-		<action name="orderCommit" class="qjtx.action.SaveSalesData">
+		<action name="qjcommitOrder" class="qjtx.action.QjcommitOrder">
 			<result type="json" name="success">
 			</result>
 			<result name="input">error.html</result>
@@ -62,6 +62,11 @@
 			<result name="success">/qjmanage.jsp</result>
 			<result name="error">/login.jsp</result>
 			<result name="input">/login.jsp</result>
+		</action>
+		<action name="qjOrdersData" class="qjtx.action.QjOrdersData">
+			<result type="json" name="success">
+			</result>
+			<result name="input">error.html</result>
 		</action>
 	</package>
 

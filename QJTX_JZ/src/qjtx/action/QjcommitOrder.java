@@ -15,10 +15,7 @@ import org.springframework.stereotype.Controller;
 
 import qjtx.pojo.Qjorderdata;
 import qjtx.pojo.Qjorders;
-import qjtx.pojo.SalesData;
-import qjtx.pojo.SalesDataDay;
 import qjtx.service.QjorderService;
-import qjtx.service.SalesService;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.taobao.api.DefaultTaobaoClient;
@@ -55,7 +52,50 @@ public class QjcommitOrder extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
-
+		
+		//阿里订单生成
+		TaobaoClient client = new DefaultTaobaoClient("https://eco.taobao.com/router/rest?format=json", "23759189", "62b83473b750a7fe07ab8bdb5fb42ba5");
+		//sandbox
+		//TaobaoClient client = new DefaultTaobaoClient("https://gw.api.tbsandbox.com/router/rest", "23759189", "62b83473b750a7fe07ab8bdb5fb42ba5");
+		AlibabaAliqinTradeCreateRequest req = new AlibabaAliqinTradeCreateRequest();
+		Exproperty obj1 = new Exproperty();
+		obj1.setMonthlyFee(qjorderdata.getMonthly_fee());
+		obj1.setBroadbandRate(qjorderdata.getBroadband_rat());
+		obj1.setEffectiveDate("");
+		obj1.setContractPeriod(qjorderdata.getContract_period());
+		obj1.setPackageDetails(qjorderdata.getPackage_details());
+		obj1.setPackageName(qjorderdata.getPackage_name());
+		obj1.setOperators("移动");
+		obj1.setProvince("上海");
+		obj1.setBroadbandAccount("");
+		obj1.setMobile(qjorderdata.getMobile());
+		obj1.setIdNumber(qjorderdata.getId_number());
+		obj1.setName(qjorderdata.getCname());
+		obj1.setServiceType(qjorderdata.getService_type());
+		obj1.setSource("detail");
+		obj1.setInstallationAddress(qjorderdata.getInstallation_address());
+		obj1.setPackagePrice("");
+		obj1.setPreferentialInfo("");
+		obj1.setAttachInfo("qjtx");
+		req.setExProperty(obj1);
+		//参数解析传入：用户混淆id，商品id，总价，插件id
+		req.setMixUserId(qjorderdata.getMix_user_id());
+		req.setItemId(Long.valueOf(qjorderdata.getItem_id()));
+		req.setTotalPrice("0.01");
+		Date updateTime = new Date();
+		Date expiryDate = new Date(updateTime.getTime() + 300000);
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd--HHmmss");
+		req.setExpiryDate(expiryDate);
+//		req.setExpiryDate(StringUtils.parseDateTime("2016-07-29 12:12:12"));
+		req.setPluginInstanceId(222L);
+		req.setMerchantOrderId("23678698");
+		AlibabaAliqinTradeCreateResponse rsp = client.execute(req);
+		if ("非法参数".equals(rsp.getSubMsg())) {
+			retMessage="阿里订单创建失败！";
+		} else {
+			retMessage=rsp.getTradeExtendToken();
+		}
+		
 		String saleImageFiles = ServletActionContext.getServletContext().getRealPath("/saleImageFiles");
 		// System.out.println(saleImageFiles);
 		File targetFile = new File(saleImageFiles);
@@ -66,9 +106,7 @@ public class QjcommitOrder extends ActionSupport {
 		Qjorders qjorder = new Qjorders();
 		int retry = 3;
 		int res = 0;
-		Date updateTime = new Date();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd--HHmmss");
-		SimpleDateFormat formatDay = new SimpleDateFormat("yyyy-MM-dd");
+
 		String imgFileString = "";
 		// 遍历所有上传图片
 		for (int i = 0; i < qjorderdata.getImageList().size(); i++) {
@@ -99,7 +137,8 @@ public class QjcommitOrder extends ActionSupport {
 			qjorder.setOperatestatus(0);
 			
 		} catch (Exception e) {
-
+			System.out.println(e.getMessage());
+			retMessage="奇杰订单创建失败！";
 		}
 
 		while (retry > 0) {
@@ -110,46 +149,14 @@ public class QjcommitOrder extends ActionSupport {
 				if (retry > 0) {
 					res = qjorderService.commidOrder(qjorder);
 					retry = -1;
+					return SUCCESS;
 				}
 			} catch (Exception e) {
 				retry--;
 			}
 		}
-		//阿里订单生成
-		TaobaoClient client = new DefaultTaobaoClient("https://eco.taobao.com/router/rest", "23759189", "62b83473b750a7fe07ab8bdb5fb42ba5");
-		//sandbox
-		//TaobaoClient client = new DefaultTaobaoClient("https://gw.api.tbsandbox.com/router/rest", "23759189", "62b83473b750a7fe07ab8bdb5fb42ba5");
-		AlibabaAliqinTradeCreateRequest req = new AlibabaAliqinTradeCreateRequest();
-		Exproperty obj1 = new Exproperty();
-		obj1.setMonthlyFee("78.89");
-		obj1.setBroadbandRate("100M");
-		obj1.setEffectiveDate("2017年11月11号零点");
-		obj1.setContractPeriod("2年");
-		obj1.setPackageDetails("套餐详情描述");
-		obj1.setPackageName("套餐名称");
-		obj1.setOperators("运营商名称");
-		obj1.setProvince("浙江");
-		obj1.setBroadbandAccount("宽带账号");
-		obj1.setMobile("手机号码");
-		obj1.setIdNumber("身份证号");
-		obj1.setName("机主姓名");
-		obj1.setServiceType("broadband");
-		obj1.setSource("detail");
-		obj1.setInstallationAddress("浙江杭州xxxxx");
-		obj1.setPackagePrice("89.89");
-		obj1.setPreferentialInfo("9.5折，送200元话费");
-		obj1.setAttachInfo("id:898");
-		req.setExProperty(obj1);
-		//参数解析传入：用户混淆id，商品id，总价，插件id
-		req.setMixUserId("AAHrb-fwAAgOrLpFIt9ATdjc");
-		req.setItemId(100889988L);
-		req.setTotalPrice("1024.55");
-		req.setExpiryDate(StringUtils.parseDateTime("2016-07-29 12:12:12"));
-		req.setPluginInstanceId(60L);
-		req.setMerchantOrderId("23678698");
-		AlibabaAliqinTradeCreateResponse rsp = client.execute(req);
-		System.out.println(rsp.getBody());
 		
+
 		
 		return SUCCESS;
 
@@ -178,6 +185,18 @@ public class QjcommitOrder extends ActionSupport {
 		} catch (Exception e) {
 			return false;
 		}
+	}
+	
+	
+	private String retMessage;
+
+
+	public String getRetMessage() {
+		return retMessage;
+	}
+
+	public void setRetMessage(String retMessage) {
+		this.retMessage = retMessage;
 	}
 
 }

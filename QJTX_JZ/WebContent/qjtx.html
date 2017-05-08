@@ -18,9 +18,11 @@
 		<script>
 			var pdatalist;
 			var item_id;
-			var merchant_order_id;
-			var orderprice;
 			var mix_user_id;
+			var tradeToken;
+			
+			var merchant_order_id="23759189";
+			var orderprice="0.01";
 			var ordertime;
 			var service_type;
 			var package_name;
@@ -33,6 +35,18 @@
 			var id_number;
 			var cname;
 			var installation_address;
+
+			function GetQueryString(name) {
+				   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
+				   var r = window.location.search.substr(1).match(reg);
+				   if (r!=null) return (r[2]); return null;
+			}
+			mix_user_id = GetQueryString("mixUserId");
+			item_id = GetQueryString("itemId");
+			tradeToken = GetQueryString("tradeToken");
+			//alert(GetQueryString("mixUserId"));
+			//alert(GetQueryString("itemId"));
+			//alert(GetQueryString("tradeToken"));
 		</script>
 
 	</head>
@@ -59,7 +73,6 @@
 						</p>
 				</div>
  				<div class="ui-text-vanke">
-					<div class="ui-text-vankesaletotal">
 						<p>
 							选择续约套餐类型：
 						</p>
@@ -71,33 +84,51 @@
 				        <p>
 							选择套餐：
 						</p>
-				        <select name="packagename"> 
+				        <select id="packagename" name="packagename"> 
 				        <option value="select">请选择..</option>   
 				        </select>
-				        <select name="fee">  
+				        <select id="fee" name="fee">  
 				        <option value="select">请选择..</option>  
 				        </select>
-				        <select name="contractperiod"> 
+				        <select id="contractperiod" name="contractperiod"> 
 				        <option value="select">请选择..</option>   
 				        </select>
-					</div>
 				</div>
-<!--				<div class="ui-text-vanke">
-					<div class="ui-text-vankesaletotal">
+				<div class="ui-text-vanke" id="districtDiv" style="display: none;">
 						<p>
-							销售额：
+							所在区：	
 						</p>
-						<input type="number" id="total"></input>
-					</div>
+						<select id="boarddistrict" name="boarddistrict">  
+        				    <option value="select">请选择..</option>   
+				        </select>  
+				        <p>
+							安装地址：
+						</p>
+						<input type="text" id="installation_address"></input>
+				</div>
+				<div class="ui-text-vanke">
 					<div class="ui-text-vankesaleqty">
 						<p>
-							成交笔数：
-						</p><input type="number" id="qty"></input>
-					</div>	
-				</div> -->
+							客户姓名：
+						</p>
+						<input type="text" id="cname"></input>
+					</div>
+					<div class="ui-text-vankesaletotal">
+						<p>
+							套餐所属手机号：
+						</p>
+						<input type="number" id="mobile"></input>
+					</div>
+				</div>
+				<div class="ui-text-vanke">
+					<p>
+						身份证号：
+					</p>
+					<input type="text" id="id_number"></input>
+				</div>
 				<div class="saleImg">
 			        <p>
-							身份证扫描／拍摄文件：
+							身份证扫描／拍摄文件(正反面、可传多个文件)：
 					</p>
 				</div>
 				<div class="saleImg">
@@ -115,7 +146,7 @@
 				</div>
 				
 				<div class="ui-text-vanke">
-					<a id="salesubmit" href="#"
+					<a id="ordersubmit" href="#"
 						class="ui-btn-corner-all ui-btn ui-shadow">确认下单</a>
 				</div>
 
@@ -129,7 +160,7 @@
 					<hr
 						style="height: 1px; background-color: #ccc; border: 0; margin-top: 4px; margin-bottom: 4px;">
 					<p>
-						Design&Dev by JZ- 奇杰通信专营店
+						 奇杰通信专营店
 					</p>
 				</div>
 			</div>

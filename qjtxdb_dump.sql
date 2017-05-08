@@ -56,7 +56,7 @@ CREATE TABLE `qj_orders` (
   `orderprice` double DEFAULT NULL,
   `operatetime` datetime DEFAULT NULL,
   `operaterid` varchar(30) DEFAULT NULL,
-  `operatestatus` int(11) DEFAULT NULL COMMENT '0未处理, 1已处理, 2办理失败',
+  `operatestatus` varchar(30) DEFAULT NULL COMMENT '0未处理, 1已处理, 2办理失败',
   `monthly_fee` double DEFAULT NULL COMMENT '套餐月费，可支持两位小数，单位（元）',
   `broadband_rat` varchar(30) DEFAULT NULL COMMENT '宽带速率',
   `effective_date` date DEFAULT NULL COMMENT '生效时间',
@@ -98,4 +98,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-04 14:54:00
+-- Dump completed on 2017-05-08 18:52:06

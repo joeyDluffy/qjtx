@@ -814,16 +814,16 @@ margin-right: 3%;
 }
 .ui-text-vankesaletotal {
 	font-size: 1em;
-	float: left;
-	padding: 0px 5px 0px 0px;
-    width: 60%;
+	float: right;
+	padding: 0px 0px 5px 0px;
+    width: 70%;
 }
 .ui-text-vankesaleqty {
 	padding: .2em;
 	font-size: 1em;
-	float: right;
-	padding: 0px 0px 5px 0px;
-    width: 35%;
+	float: left;
+	padding: 0px 5px 0px 0px;
+    width: 25%;
 }
 .ui-text-vankesaletotal textarea{
 	padding: .2em;
@@ -864,6 +864,11 @@ margin-right: 3%;
     width: 100%;
     margin: 0;
 	}
+	
+.saleImg p{
+		font-size: 0.8em;
+		margin: 0.4em 0 0.4em
+}
 .loading{
 		color:#ffffff; 
 		display:none; 

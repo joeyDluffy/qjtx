@@ -44,7 +44,7 @@
 		
 	</script>
 	<script type="text/javascript" src="report/js/tabulator.js"></script>
-	<script type="text/javascript" src="report/js/report.js"></script>
+	<script type="text/javascript" src="report/js/reportqj.js"></script>
 	<link rel="stylesheet" type="text/css" href="report/css/default.css">
 	<style type="text/css">
 	body{

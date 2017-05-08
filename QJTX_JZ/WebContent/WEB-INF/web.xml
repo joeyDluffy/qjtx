@@ -35,7 +35,7 @@
   </context-param>
   <context-param>
     <param-name>webAppRootKey</param-name>
-    <param-value>webapp.vkjz</param-value>
+    <param-value>webapp.qjtx-jz</param-value>
   </context-param>
   <context-param>
     <param-name>log4jConfigLocation</param-name>

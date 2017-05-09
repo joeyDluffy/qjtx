@@ -24,6 +24,10 @@
 		</action>
 		
 		<!-- qjtx actions -->
+		<action name="qjsign" class="qjtx.action.QjSign">
+			<result name="success">/reportData.jsp</result>	
+			<result name="error">/error.html</result>
+		</action>
 		<action name="qjcommitOrder" class="qjtx.action.QjcommitOrder">
 			<result type="json" name="success">
 			</result>

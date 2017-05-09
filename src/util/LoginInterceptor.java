@@ -29,7 +29,7 @@ public class LoginInterceptor extends AbstractInterceptor {
             return invocation.invoke();  
         } 
         ctx.put("tip", "您还没有登录");  
-        return Action.LOGIN;  
+        return "qjlogin";  
     }  
   
     private void setGoingToURL(Map<String, Object> session, ActionInvocation invocation) {  
@@ -42,7 +42,7 @@ public class LoginInterceptor extends AbstractInterceptor {
   
         String actionName = invocation.getProxy().getActionName();  
         if (StringUtils.isNotBlank(actionName)) {  
-            url = url + "/qjData.html";  
+            url = url + "/reportData.jsp";  
         }  
   
         session.put("qjtx_main", url);  

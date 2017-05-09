@@ -110,10 +110,11 @@
 			<h1>奇杰通信<span>运营管理专用</span></h1>
 			
 		</header>
-		<%-- <div class="dateSelect">
+		 <div class="dateSelect">
 			<div class="dateSelect1">
 				<input type="date" id="saleday"></input>
 			</div>
+			<%--
 			<div class="dateSelect2">
 				<input type="checkbox" id="isReview">已提交未审核</input>
 			</div>
@@ -151,10 +152,10 @@
 						</option>
 						
 					</select>
-			</div>
+			</div>--%>
 			
 			
-		</div> --%>
+		</div> 
 <section>
 	<div id="qbvk-table"></div>
 </section>

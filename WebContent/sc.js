@@ -155,7 +155,7 @@ $(document).ready(function(){
 	$("#ordersubmit").bind(
 		"click", function() {
 			//是否是从淘宝中进入check
-			if ($("#mix_user_id").val() == null || $("#mix_user_id").val()=="" ) 
+			if (mix_user_id == null || mix_user_id=="") 
 			{	
 				alert("请从手机淘宝中购买套餐续约服务！"); 
 				return;
@@ -239,6 +239,8 @@ $(document).ready(function(){
 			if ($("#cname").val() == "" ) 
 			{	
 				alert("客户姓名不能为空"); 
+				$("#cname").css("background","yed");
+				$("#cname").focus();
 				return;
 			}
 			else

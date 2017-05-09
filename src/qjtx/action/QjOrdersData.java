@@ -47,6 +47,9 @@ public class QjOrdersData extends ActionSupport {
 				retry--;
 			}
 		}
+		for (int i = 0; i < resList.size(); i++) {
+			resList.get(i).setId(i + 1);
+		}
 		return SUCCESS;
 
 	}

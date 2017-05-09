@@ -388,7 +388,7 @@
     from qj_orders
     <where>
 	    <if test="saleday != null and saleday != ''">
-	    	orderdate &gt;= #{saleday,jdbcType=DATE}
+	    	ordertime &gt;= #{saleday,jdbcType=DATE}
 	    </if>  
     </where>
   </select>

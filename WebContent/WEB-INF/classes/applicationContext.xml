@@ -22,7 +22,7 @@
 
 	<!-- enable transaction demarcation with annotations -->
 	<tx:annotation-driven />
-		<!-- 数据源配置 
+		<!-- 数据源配置 -->
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
@@ -34,7 +34,8 @@
 		</property>
 		<property name="username" value="root"></property>
 		<property name="password" value="20150515"></property>
-	</bean>-->
+	</bean>
+	<!--数据源配置 
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
@@ -46,7 +47,7 @@
 		</property>
 		<property name="username" value="qjtx"></property>
 		<property name="password" value="qjtX2017"></property>
-	</bean>
+	</bean>-->
 	<!-- 数据源配置 
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource"

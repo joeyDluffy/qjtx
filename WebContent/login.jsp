@@ -162,7 +162,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-offset-3 col-md-6">
-				<form class="form-horizontal" method="post" action="login">
+				<form class="form-horizontal" method="post" action="qjlogin">
 					<span class="heading">奇杰通信订单管理</span>
 					<div class="form-group">
 						<input type="text" class="form-control" id="inputEmail3" name ="username"

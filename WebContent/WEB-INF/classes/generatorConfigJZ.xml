@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+<classPathEntry location="/JZ/JZDEV/WORKSPACE/QJTX_JZ/WebContent/WEB-INF/lib/mysql-connector-java-5.1.25-bin.jar" />
+
+	<context id="qj_orders">
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://127.0.0.1:3306/qjtx_db" userId="root"
+			password="20150515" />
+		<javaModelGenerator targetPackage="qjtx.pojo"
+			targetProject="QJTX_JZ" />
+		<sqlMapGenerator targetPackage="qjtx.dao" targetProject="QJTX_JZ" />
+		<javaClientGenerator targetPackage="qjtx.dao"
+			targetProject="QJTX_JZ" type="XMLMAPPER" />
+		<table tableName="qj_orders" domainObjectName="Qjorders"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+	</context>
+		<context id="qj_operaters">
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://127.0.0.1:3306/qjtx_db" userId="root"
+			password="20150515" />
+		<javaModelGenerator targetPackage="qjtx.pojo"
+			targetProject="QJTX_JZ" />
+		<sqlMapGenerator targetPackage="qjtx.dao" targetProject="QJTX_JZ" />
+		<javaClientGenerator targetPackage="qjtx.dao"
+			targetProject="QJTX_JZ" type="XMLMAPPER" />
+		<table tableName="qj_operaters" domainObjectName="Qjoperaters"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+	</context>
+</generatorConfiguration>

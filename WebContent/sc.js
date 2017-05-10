@@ -318,8 +318,8 @@ $(document).ready(function(){
 						pdatalist = new Array();
 						var retMessage=data.retMessage;
 						var retError=data.retError;
-						alert(retError);
-						alert("tradeExToken"+retMessage);
+//						alert(retError);
+//						alert("tradeExToken"+retMessage);
 						if (retMessage.indexOf("err:")>=0) {
 							alert(retMessage);
 						} else {
@@ -332,7 +332,10 @@ $(document).ready(function(){
 						        debug: 0, 
 						        combo: 0
 						    }, function(e){
-						        Tida.customization.buildOrder({tradeExToken:regMessage ,tradeToken:tradeToken});
+						    	alert(retMessage+'---'+tradeToken);
+						        Tida.customization.buildOrder({tradeExToken:regMessage,tradeToken:tradeToken},
+						        		function(error){
+						            alert(JSON.stringify(error));});
 						    });
 						}
 						

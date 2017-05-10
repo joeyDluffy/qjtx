@@ -6,7 +6,6 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import qjtx.pojo.Qjorders;
-import qjtx.pojo.VReportSalesData;
 
 public interface QjordersMapper {
 

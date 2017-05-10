@@ -1,4 +1,6 @@
-
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,7 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>奇杰通信天猫营业厅</title>
 		<!--<script src="//g.alicdn.com/tmapp/tida2/2.2.16/tida.js?appkey=应用的前台appkey"></script>   -->
-		<!--<script type="text/javascript" src="//g.alicdn.com/tmapp/tida/3.2.51/tida.js?appkey=23759189"></script>  -->
+		<script type="text/javascript" src="//g.alicdn.com/tmapp/tida/3.2.51/tida.js?appkey=23759189"></script>
     	<link rel="stylesheet" href="src/lib/bootstrap.min.css?v=1e35cd1"/>
 		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.2.css" />
@@ -17,9 +19,9 @@
 		<script src="dist/lrz.bundle.js?v=2"></script>
 		<script>
 			var pdatalist;
-			var item_id;
-			var mix_user_id;
-			var tradeToken;
+			var item_id='<s:property value="itemId"/>';
+			var mix_user_id='<s:property value="mixUserId"/>';
+			var tradeToken='<s:property value="tradeToken"/>';
 			
 			var merchant_order_id="23759189";
 			var orderprice="0.01";
@@ -36,14 +38,14 @@
 			var cname;
 			var installation_address;
 
-			function GetQueryString(name) {
-				   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
-				   var r = window.location.search.substr(1).match(reg);
-				   if (r!=null) return (r[2]); return null;
-			}
-			mix_user_id = GetQueryString("mixUserId");
-			item_id = GetQueryString("itemId");
-			tradeToken = GetQueryString("tradeToken");
+			//function GetQueryString(name) {
+			//	   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
+			//	   var r = window.location.search.substr(1).match(reg);
+			//	   if (r!=null) return (r[2]); return null;
+			//}
+			//mix_user_id = GetQueryString("mixUserId");
+			//item_id = GetQueryString("itemId");
+			//tradeToken = GetQueryString("tradeToken");
 			//alert(GetQueryString("mixUserId"));
 			//alert(GetQueryString("itemId"));
 			//alert(GetQueryString("tradeToken"));
@@ -166,5 +168,5 @@
 			</div>
 		</div>
 	</body>
-	<script type="text/javascript" src="//g.alicdn.com/tmapp/tida/3.2.51/tida.js?appkey=23759189"></script>
+
 </html>

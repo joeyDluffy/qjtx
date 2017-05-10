@@ -24,9 +24,16 @@
 		</action>
 		
 		<!-- qjtx actions -->
-		<action name="qjsign" class="qjtx.action.QjSign">
-			<result name="success">/reportData.jsp</result>	
-			<result name="error">/error.html</result>
+		<action name="qj" class="qjtx.action.Qjsign">
+			<result name="success">/qjtx.jsp</result>	
+			<result type="httpheader" name="errortime">
+				<param name="status">403</param>
+				<param name="headers.a">over time</param>
+			</result>	
+			<result type="httpheader" name="errorsign">
+				<param name="status">403</param>
+				<param name="headers.a">sign failed</param>
+			</result>	
 		</action>
 		<action name="qjcommitOrder" class="qjtx.action.QjcommitOrder">
 			<result type="json" name="success">

@@ -20,9 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import qjtx.pojo.Qjorders;
-import qjtx.pojo.SalesDataDay;
 import qjtx.service.QjmanageService;
-import qjtx.service.SalesService;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;

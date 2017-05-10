@@ -47,7 +47,7 @@
 		</listener-class>
   </listener>
   <welcome-file-list>
-    <welcome-file>qjtx.html</welcome-file>
+    <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
   	<session-config>
 		<session-timeout>5</session-timeout> 

@@ -6,19 +6,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import qjtx.dao.OperationuserMapper;
+
 import qjtx.dao.QjoperatersMapper;
 import qjtx.dao.QjordersMapper;
-import qjtx.dao.SalesDataDayMapper;
-import qjtx.dao.SalesDataStoreMapper;
-import qjtx.dao.VReportSalesDataMapper;
 import qjtx.pojo.Operationuser;
 import qjtx.pojo.Qjoperaters;
 import qjtx.pojo.Qjorders;
-import qjtx.pojo.SalesDataDay;
-import qjtx.pojo.SalesDataStore;
-import qjtx.pojo.VReportSalesData;
-import qjtx.pojo.VReportSalesDataForOp;
 
 @Service
 public class QjmanageService {

@@ -317,17 +317,25 @@ $(document).ready(function(){
 						$("#saleImg1").attr('value','');
 						pdatalist = new Array();
 						var retMessage=data.retMessage;
-						Tida.ready({
-					        //share 为分享模块，如果需要分享功能，需要写上
-					        //customization 为定制模块，必填
-					        //device 为设备模块，如果需要手机拍照功能，需要填上
-					        //提示，请按需加载，加快页面载入速度。
-					        module:["customization"], // 需要的模块
-					        debug: 0, 
-					        combo: 0
-					    }, function(e){
-					        Tida.customization.buildOrder({tradeExToken:regMessage ,tradeToken:tradeToken});
-					    });
+						var retError=data.retError;
+						alert(retError);
+						alert("tradeExToken"+retMessage);
+						if (retMessage.indexOf("err:")>=0) {
+							alert(retMessage);
+						} else {
+							Tida.ready({
+						        //share 为分享模块，如果需要分享功能，需要写上
+						        //customization 为定制模块，必填
+						        //device 为设备模块，如果需要手机拍照功能，需要填上
+						        //提示，请按需加载，加快页面载入速度。
+						        module:["customization"], // 需要的模块
+						        debug: 0, 
+						        combo: 0
+						    }, function(e){
+						        Tida.customization.buildOrder({tradeExToken:regMessage ,tradeToken:tradeToken});
+						    });
+						}
+						
 		            }
 		    });
 		});
@@ -461,7 +469,7 @@ function IsTel(Tel){
                     }
                 }
             }
-            if(!pass) alert(tip);
+            if(!pass) alert("身份证号"+tip);
             return pass;
         }
 function showLoader() {  

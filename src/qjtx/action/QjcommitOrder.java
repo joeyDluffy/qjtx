@@ -54,7 +54,7 @@ public class QjcommitOrder extends ActionSupport {
 	public String execute() throws Exception {
 		
 		Date updateTime = new Date();
-		Date expiryDate = new Date(updateTime.getTime() + 300000);
+		Date expiryDate = new Date(updateTime.getTime() + 600000);
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd--HHmmss");
 		/*----*/
 		//阿里订单生成
@@ -63,9 +63,10 @@ public class QjcommitOrder extends ActionSupport {
 		//TaobaoClient client = new DefaultTaobaoClient("https://gw.api.tbsandbox.com/router/rest", "23759189", "62b83473b750a7fe07ab8bdb5fb42ba5");
 		AlibabaAliqinTradeCreateRequest req = new AlibabaAliqinTradeCreateRequest();
 		Exproperty obj1 = new Exproperty();
-
+		//undefined
+		qjorderdata.setPackage_details(qjorderdata.getPackage_details().replaceAll("undefined", " "));
 		try {
-			obj1.setMonthlyFee(qjorderdata.getMonthly_fee());
+//			obj1.setMonthlyFee(0);
 			obj1.setBroadbandRate(qjorderdata.getBroadband_rat());
 			obj1.setEffectiveDate("");
 			obj1.setContractPeriod(qjorderdata.getContract_period());
@@ -80,7 +81,7 @@ public class QjcommitOrder extends ActionSupport {
 			obj1.setServiceType(qjorderdata.getService_type());
 			obj1.setSource("detail");
 			obj1.setInstallationAddress(qjorderdata.getInstallation_address());
-			obj1.setPackagePrice("");
+//			obj1.setPackagePrice("");
 			obj1.setPreferentialInfo("");
 			obj1.setAttachInfo("qjtx");
 			req.setExProperty(obj1);
@@ -88,22 +89,27 @@ public class QjcommitOrder extends ActionSupport {
 			req.setMixUserId(qjorderdata.getMix_user_id());
 			req.setItemId(Long.valueOf(qjorderdata.getItem_id()));
 			req.setTotalPrice("0.01");
-			
 			req.setExpiryDate(expiryDate);
 	//		req.setExpiryDate(StringUtils.parseDateTime("2016-07-29 12:12:12"));
-			req.setPluginInstanceId(222L);
+			req.setPluginInstanceId(254L);
 			req.setMerchantOrderId("23678698");
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			retMessage="奇杰订单创建失败！";
+//			System.out.println(e.getMessage());
+			retMessage="err: 阿里订单创建失败！"+e.getMessage();
+			return SUCCESS;
 		}
 		AlibabaAliqinTradeCreateResponse rsp = client.execute(req);
-		if ("非法参数".equals(rsp.getSubMsg())) {
-			retMessage="阿里订单创建失败！";
+		if (rsp.getTradeExtendToken() == null || "".equals(rsp.getTradeExtendToken())) {
+			retMessage="err:"+rsp.getSubMsg();
+
+			return SUCCESS;
 		} else {
+			retError="err:"+rsp.getSubMsg()+rsp.getBody();
 			retMessage=rsp.getTradeExtendToken();
 		}
 		
+		
+		//奇杰通信记录
 		String saleImageFiles = ServletActionContext.getServletContext().getRealPath("/saleImageFiles");
 		// System.out.println(saleImageFiles);
 		File targetFile = new File(saleImageFiles);
@@ -146,7 +152,7 @@ public class QjcommitOrder extends ActionSupport {
 			qjorder.setPackage_price(Double.valueOf(qjorderdata.getPackage_price()));
 		} catch (Exception e) {
 //			System.out.println(e.getMessage());
-			retMessage="奇杰订单创建失败！";
+//			retMessage="err: 奇杰订单创建失败！"+e.getMessage();
 		}
 
 		while (retry > 0) {
@@ -197,7 +203,15 @@ public class QjcommitOrder extends ActionSupport {
 	
 	
 	private String retMessage;
+	private String retError;
 
+	public String getRetError() {
+		return retError;
+	}
+
+	public void setRetError(String retError) {
+		this.retError = retError;
+	}
 
 	public String getRetMessage() {
 		return retMessage;

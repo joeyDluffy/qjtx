@@ -53,10 +53,11 @@ public class MD5Util {
 	}
     public static void main(String[] args)throws Exception{
     	String sign="E2B068F2E85AF42882C747F169ACBC8B";
-        String inputStr = "62b83473b750a7fe07ab8bdb5fb42ba5appkey23759189instance_id254ts149434892762662b83473b750a7fe07ab8bdb5fb42ba5";
+        String inputStr = "62b83473b750a7fe07ab8bdb5fb42ba5appkey23759189instance_id254ts149438394208362b83473b750a7fe07ab8bdb5fb42ba5";
         byte[] inputData = inputStr.getBytes();
         String key = "UTF_8";
         System.out.println(MD5Util.byte2hex(MD5Util.encryptHMAC(inputStr,"62b83473b750a7fe07ab8bdb5fb42ba5")));
+        System.out.println(MD5Util.string2MD5(inputStr));
     }
 	/***
 	 * MD5加码 生成32位md5码

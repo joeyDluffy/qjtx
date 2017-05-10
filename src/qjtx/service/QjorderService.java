@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import qjtx.dao.QjordersMapper;
 import qjtx.pojo.Qjorders;
-import qjtx.pojo.SalesDataDay;
 
 
 @Service

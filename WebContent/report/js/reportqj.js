@@ -32,11 +32,11 @@ function refreshTable() {
 		fitColumns:true,
 		columns:[
 		
-		{title:"订单序号", field:"orderid", sorter:"string",width:"100px"},
-		{title:"客户姓名", field:"cname", sorter:"string",width:"80px"},
+		{title:"订单", field:"orderid", sorter:"string",width:"60px"},
+		{title:"客户名", field:"cname", sorter:"string",width:"80px"},
 		{title:"客户手机", field:"mobile", sorter:"string",width:"100px"},
 		{title:"选择套餐内容", field:"package_details", sorter:"string"},
-		{title:"身份证号", field:"id_number", sorter:"string",width:"200px"},
+		{title:"身份证号", field:"id_number", sorter:"string",width:"170px"},
 		{title:"淘宝订单号", field:"tb_orderid", sorter:"string", editable: true, formatter:function(value, data, cell, row, options){
 			if(numCheck(value)){
 				return value;
@@ -44,11 +44,11 @@ function refreshTable() {
 				cell.data("value", '');
 				return '';
 			}
-		},width:"100px"},
+		},width:"120px"},
 		{title:"签订状态", field:"operatestatus", sorter:"string", editable: true, formatter:function(value, data, cell, row, options){
 			return value;
 		},width:"100px"},
-		{title:"处理订单", field:"reviewed", align:"center", formatter:"tickCross",editable:true, 
+		{title:"处理订单", field:"operateBtn", align:"center", formatter:"progress",editable:true, 
 			onClick:function(e, cell, val, row)
 			{
 

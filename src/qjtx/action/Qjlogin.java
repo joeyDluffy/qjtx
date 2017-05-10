@@ -9,9 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import qjtx.pojo.Operationuser;
 import qjtx.pojo.Qjoperaters;
-import qjtx.pojo.SalesDataStore;
 import qjtx.service.QjmanageService;
-import qjtx.service.SalesService;
 import sun.misc.BASE64Decoder;
 
 @Controller

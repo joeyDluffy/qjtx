@@ -1100,6 +1100,13 @@ formatters:{
 			return cross;
 		}
 	},
+	button:function(value, data, cell, row, options){
+		if(value === true || value === 'true' || value === 'True' || value === 1){
+			return tick;
+		}else{
+			return cross;
+		}
+	},
 	star:function(value, data, cell, row, options){
 		var maxStars = 5;
 		var stars=$("<span></span>");

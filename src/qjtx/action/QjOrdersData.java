@@ -10,11 +10,7 @@ import org.springframework.stereotype.Controller;
 import com.opensymphony.xwork2.ActionSupport;
 
 import qjtx.pojo.Qjorders;
-import qjtx.pojo.SalesDataDay;
-import qjtx.pojo.VReportSalesData;
-import qjtx.pojo.VReportSalesDataForOp;
 import qjtx.service.QjmanageService;
-import qjtx.service.SalesService;
 
 @Controller
 public class QjOrdersData extends ActionSupport {

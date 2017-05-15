@@ -10,13 +10,13 @@
 		<meta name="spm-id" content="a1z51.23759189"/>
 		<title>奇杰通信天猫营业厅</title>
 		<script type="text/javascript" src="//g.alicdn.com/tmapp/tida2/2.2.16/tida.js?appkey=23759189"></script>
-	    <link rel="stylesheet" href="src/lib/bootstrap.min.css?v=1e35cd1"/>
+
 		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.2.css" />
-		<link rel="stylesheet" href="themes/qjtx.css" />
+		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.2.css?v=1" />
+		<link rel="stylesheet" href="themes/qjtx.css?v=99" />
 		<script type="text/javascript" src="themes/jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" src="themes/jquery.mobile-1.4.2.min.js"></script>
-		<script type="text/javascript" src="qjtx_zd.js?v=123"></script>
+		<script type="text/javascript" src="qjtx_zd.js?v=12124"></script>
 		<script type="text/javascript" src="dist/lrz.bundle.js"></script>
 		<script>
 			var tida=Tida.ready({
@@ -74,28 +74,22 @@
 					<p>
 						奇杰通信移动套餐续约服务
 					</p>
-					<hr style="height: 1px; background-color: #ccc; border: 0; margin: 0.5em; ">
+					<hr style="height: 1px; background-color: #ccc; border: 0; margin: 0.4em; ">
 				</div>
-
-
-				<div class="ui-text-vanketime">	
-						<p id="">
-						</p>
-						<p id="saleday">
-						</p>
-				</div>
- 				<div class="ui-text-vanke">
-						<p>
-							选择续约套餐类型：
-						</p>
-						<select id="servicetype" name="servicetype">  
-				            <option value="select">请选择..</option>     
-				            <option value="终端活动">终端活动</option>     
-				            <option value="移动宽带">移动宽带</option>          
-				        </select>  
+ 				<div class="sys_item_spec"> 
 				        <p>
 							选择套餐：
 						</p>
+						<dl id="package" class="clearfix iteminfo_parameter sys_item_specpara">
+							<dt>类型</dt>
+							<dd>
+								<ul class="sys_spec_text">
+									<li data-aid="1"><a href="javascript:;" title="4G签约赠话费">4G签约赠话费</a><i></i></li>
+									<li data-aid="2"><a href="javascript:;" title="资费签约">资费签约</a><i></i></li>
+								</ul>
+				
+							</dd>
+						</dl>
 				        <select id="packagename" name="packagename"> 
 				        <option value="select">请选择..</option>   
 				        </select>
@@ -107,21 +101,30 @@
 				        </select>
 				</div>
 				<div class="qj_whitediv">
-					<label class="qj_label">客户姓名：</label>
+					<div class="qj_label">
+						<p style="height:20px; margin:10px .5em;">客户姓名：</p>
+					</div>
 					<div class="qj_textfield">
 						<input type="text" id="cname"></input>
 					</div>
-					<label>手机号：</label>
+				</div>
+				<div class="qj_whitediv">
+					<div class="qj_label">
+						<p style="height:20px; margin:10px .5em;">手机号：</p>
+					</div>
 					<div class="qj_textfield">
 						<input type="number" id="mobile"></input>
 					</div>
-					<label>身份证号：</label>
+				</div>
+				<div class="qj_whitediv">
+					<div class="qj_label">
+						<p style="height:20px; margin:10px .5em;">身份证号：</p>
+					</div>
 					<div class="qj_textfield">
 						<input type="text" id="id_number"></input>
-					</div>	
+					</div>
 					
 				</div>
-	
 				<div class="saleImg">
 			        <p>
 							身份证扫描／拍摄文件(正反面、可传多个文件)：
@@ -131,7 +134,7 @@
 			        <input id="saleImg1" type="file" accept="image/* multiple" multiple = "multiple" name="saleImg1"/>
 			        
 				</div>
-				<div class="saleImg">
+				<div class="saleImg qj_whitediv">
 			        <p>
 							上传预览：<a id="clear" href="#" class="">清除文件</a>
 					</p>

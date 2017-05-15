@@ -6,7 +6,19 @@ $(document).ready(function(){
 	$("select[name='fee']")[0].selectedIndex = -1;
 
 	$(function(){  
-
+		$("#package").each(function(){
+			var i=$(this);
+			var p=i.find("ul>li");
+			p.click(function(){
+				if(!!$(this).hasClass("selected")){
+					$(this).removeClass("selected");
+					i.removeAttr("data-attrval");
+				}else{
+					$(this).addClass("selected").siblings("li").removeClass("selected");
+					i.attr("data-attrval",$(this).attr("data-aid"))
+				}
+			})
+		})
         var packagename1 = ["请选择..", "4G签约赠话费", "资费签约"];
         var packagename1a = [ "请选择..","58元", "88元", "108元", "128元", "158元", "188元", "228元", "288元"];     
         var packagename1b = [ "请选择..","58元", "88元", "108元", "138元", "158元"];

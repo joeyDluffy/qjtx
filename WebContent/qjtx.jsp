@@ -5,23 +5,32 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="spm-id" content="a1z51.23759189"/>
 		<title>奇杰通信天猫营业厅</title>
-		<!--<script src="//g.alicdn.com/tmapp/tida2/2.2.16/tida.js?appkey=应用的前台appkey"></script>   -->
-		<script type="text/javascript" src="//g.alicdn.com/tmapp/tida/3.2.51/tida.js?appkey=23759189"></script>
-    	<link rel="stylesheet" href="src/lib/bootstrap.min.css?v=1e35cd1"/>
+		<script type="text/javascript" src="//g.alicdn.com/tmapp/tida2/2.2.16/tida.js?appkey=23759189"></script>
+	    	<link rel="stylesheet" href="src/lib/bootstrap.min.css?v=1e35cd1"/>
 		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.2.css" />
 		<link rel="stylesheet" href="themes/hotline.css" />
-		<script src="themes/jquery-1.8.2.min.js"></script>
-		<script src="themes/jquery.mobile-1.4.2.min.js"></script>
-		<script src="sc.js?v=20170502"></script>
-		<script src="dist/lrz.bundle.js?v=2"></script>
+		<script type="text/javascript" src="themes/jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" src="themes/jquery.mobile-1.4.2.min.js"></script>
+		<script type="text/javascript" src="sc.js?v=123"></script>
+		<script type="text/javascript" src="dist/lrz.bundle.js"></script>-->
 		<script>
+			var tida=Tida.ready({
+			
+	    		module: ['customization']
+			}, function(e){
+//			Tida.toast('all module loaded');
+//			alert(Tida.customization);    //console.log("all module loaded");
+				});
+//			alert(tida.customization);
 			var pdatalist;
 			var item_id='<s:property value="itemId"/>';
 			var mix_user_id='<s:property value="mixUserId"/>';
-			var tradeToken='<s:property value="tradeToken"/>';
+			var trade_token='<s:property value="tradeToken"/>';
 			
 			var merchant_order_id="23759189";
 			var orderprice="0.01";
@@ -37,7 +46,7 @@
 			var id_number;
 			var cname;
 			var installation_address;
-
+			
 			//function GetQueryString(name) {
 			//	   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
 			//	   var r = window.location.search.substr(1).match(reg);
@@ -49,10 +58,13 @@
 			//alert(GetQueryString("mixUserId"));
 			//alert(GetQueryString("itemId"));
 			//alert(GetQueryString("tradeToken"));
+			
 		</script>
 
 	</head>
 	<body>
+
+		
 		<div data-role="page" data-theme="a" id="qjOrderPage">
 
 			<div data-role="header" class="ui-imghk" align="center">

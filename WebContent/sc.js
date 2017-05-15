@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	
 	//套餐初始化
 	$("select[name='servicetype']").val("select");
 	$("select[name='packagename']")[0].selectedIndex = -1;
@@ -53,7 +52,7 @@ $(document).ready(function(){
                     $("select[name='fee']").append(option);  
                 }  
                 for(var i = 0; i < packagename2aa.length; i++) {  
-                    var option = $("<option>").val(packagename2aa[i]).text(packagename2aa		[i]);  
+                    var option = $("<option>").val(packagename2aa[i]).text(packagename2aa[i]);  
                     $("select[name='contractperiod']").append(option);  
                 } 
             } else if(selected_value == "个人承诺消费送宽带"){  
@@ -154,6 +153,17 @@ $(document).ready(function(){
 	//提交
 	$("#ordersubmit").bind(
 		"click", function() {
+//			try{
+//			Tida.customization.buildOrder({tradeExToken:"",tradeToken:""});
+//} catch (e) {alert(e);}
+//try{			
+//Tida.ready({
+//		        module:["customization"]
+//		    }, function(e)
+//			{alert(Tida.customization);
+//		        Tida.customization.buildOrder({tradeExToken:"",tradeToken:""});
+//		    }); 
+//catch(e){alert(e);}
 			//是否是从淘宝中进入check
 			if (mix_user_id == null || mix_user_id=="") 
 			{	
@@ -170,7 +180,6 @@ $(document).ready(function(){
 			{
 				if ($("#servicetype").val() == "移动宽带") 
 				{
-					service_type="broadband";	
 				}
 				else if ($("#packagename").val() == "4G签约赠话费") 
 				{
@@ -318,25 +327,24 @@ $(document).ready(function(){
 						pdatalist = new Array();
 						var retMessage=data.retMessage;
 						var retError=data.retError;
-//						alert(retError);
+						//alert(retError);
 //						alert("tradeExToken"+retMessage);
 						if (retMessage.indexOf("err:")>=0) {
-							alert(retMessage);
+							//alert(retMessage);
 						} else {
+						//	Tida.bulidOrder({tradeExToken:regMessage,tradeToken:tradeToken});
+							//alert(retMessage+'---'+tradeToken);
 							Tida.ready({
-						        //share 为分享模块，如果需要分享功能，需要写上
-						        //customization 为定制模块，必填
-						        //device 为设备模块，如果需要手机拍照功能，需要填上
-						        //提示，请按需加载，加快页面载入速度。
-						        module:["customization"], // 需要的模块
-						        debug: 0, 
-						        combo: 0
+						        module:["customization"]
 						    }, function(e){
-						    	alert(retMessage+'---'+tradeToken);
-						        Tida.customization.buildOrder({tradeExToken:regMessage,tradeToken:tradeToken},
-						        		function(error){
-						            alert(JSON.stringify(error));});
-						    });
+						    	//alert(retMessage+'---'+trade_token);
+							//alert(Tida.customization);
+							//Tida.customization.buildOrder({tradeExToken:"",tradeToken:""});
+						        var param = {tradeExToken:retMessage, tradeToken:trade_token};
+							//alert(param);
+							Tida.customization.buildOrder(param);
+							//Tida.customization.buildOrder({tradeExToken:regMessage,tradeToken:trade_token});
+						     });
 						}
 						
 		            }

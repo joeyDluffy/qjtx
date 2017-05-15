@@ -16,7 +16,7 @@
 		<link rel="stylesheet" href="themes/qjtx.css" />
 		<script type="text/javascript" src="themes/jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" src="themes/jquery.mobile-1.4.2.min.js"></script>
-		<script type="text/javascript" src="sc.js?v=123"></script>
+		<script type="text/javascript" src="qjtx_zd.js?v=123"></script>
 		<script type="text/javascript" src="dist/lrz.bundle.js"></script>
 		<script>
 			var tida=Tida.ready({
@@ -69,17 +69,16 @@
 				<img class="ui-divheightvanke" src="themes/images/qjtxlogo.png">
 			</div>
 			-->
-			<div role="main" class="ui-content">
+			<div role="main" class="qj_content">
 				<div>
 					<p>
 						奇杰通信移动套餐续约服务
 					</p>
-					<hr
-						style="height: 1px; background-color: #ccc; border: 0; margin-top: 4px; margin-bottom: 4px;">
+					<hr style="height: 1px; background-color: #ccc; border: 0; margin: 0.5em; ">
 				</div>
 
 
-				<div class="ui-text-vanketime">
+				<div class="ui-text-vanketime">	
 						<p id="">
 						</p>
 						<p id="saleday">
@@ -107,38 +106,22 @@
 				        <option value="select">请选择..</option>   
 				        </select>
 				</div>
-				<div class="ui-text-vanke" id="districtDiv" style="display: none;">
-						<p>
-							所在区：	
-						</p>
-						<select id="boarddistrict" name="boarddistrict">  
-        				    <option value="select">请选择..</option>   
-				        </select>  
-				        <p>
-							安装地址：
-						</p>
-						<input type="text" id="installation_address"></input>
-				</div>
-				<div class="ui-text-vanke">
-					<div class="ui-text-vankesaleqty">
-						<p>
-							客户姓名：
-						</p>
+				<div class="qj_whitediv">
+					<label class="qj_label">客户姓名：</label>
+					<div class="qj_textfield">
 						<input type="text" id="cname"></input>
 					</div>
-					<div class="ui-text-vankesaletotal">
-						<p>
-							套餐所属手机号：
-						</p>
+					<label>手机号：</label>
+					<div class="qj_textfield">
 						<input type="number" id="mobile"></input>
 					</div>
+					<label>身份证号：</label>
+					<div class="qj_textfield">
+						<input type="text" id="id_number"></input>
+					</div>	
+					
 				</div>
-				<div class="ui-text-vanke">
-					<p>
-						身份证号：
-					</p>
-					<input type="text" id="id_number"></input>
-				</div>
+	
 				<div class="saleImg">
 			        <p>
 							身份证扫描／拍摄文件(正反面、可传多个文件)：

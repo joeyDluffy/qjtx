@@ -2789,7 +2789,7 @@ div.ui-rangeslider label {
 .ui-input-text,
 .ui-input-search {
 	margin: .5em 0;
-	border-width: 1px;
+	border-width: 0px;
 	border-style: solid;
 }
 .ui-input-text input,

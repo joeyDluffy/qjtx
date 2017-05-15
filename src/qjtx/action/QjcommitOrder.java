@@ -99,6 +99,7 @@ public class QjcommitOrder extends ActionSupport {
 			return SUCCESS;
 		}
 		AlibabaAliqinTradeCreateResponse rsp = client.execute(req);
+		retError=rsp.getBody();
 		if (rsp.getTradeExtendToken() == null || "".equals(rsp.getTradeExtendToken())) {
 			retMessage="err:"+rsp.getSubMsg();
 
@@ -110,9 +111,8 @@ public class QjcommitOrder extends ActionSupport {
 		
 		
 		//奇杰通信记录
-		//String saleImageFiles = ServletActionContext.getServletContext().getRealPath("/saleImageFiles");
+		String saleImageFiles = ServletActionContext.getServletContext().getRealPath("/saleImageFiles");
 		// System.out.println(saleImageFiles);
-		String saleImageFiles = "/acs/jz/qjtxImageFiles";
 		File targetFile = new File(saleImageFiles);
 		// System.out.println("这是上传图片的路径："+targetFile.getPath());
 		if (!targetFile.mkdirs()) {

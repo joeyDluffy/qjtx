@@ -24,8 +24,8 @@
 		</action>
 		
 		<!-- qjtx actions -->
-		<action name="qj" class="qjtx.action.Qjsign">
-			<result name="success">/qjtx.jsp</result>	
+		<action name="qj_zd" class="qjtx.action.Qjsign_zd">
+			<result name="success">/qjtx_zd.jsp</result>	
 			<result type="httpheader" name="errortime">
 				<param name="status">403</param>
 				<param name="headers.a">over time</param>

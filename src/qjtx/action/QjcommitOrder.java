@@ -82,7 +82,7 @@ public class QjcommitOrder extends ActionSupport {
 			obj1.setSource("detail");
 			obj1.setInstallationAddress(qjorderdata.getInstallation_address());
 //			obj1.setPackagePrice("");
-			obj1.setPreferentialInfo("");
+//			obj1.setPreferentialInfo("");
 			obj1.setAttachInfo("qjtx");
 			req.setExProperty(obj1);
 			//参数解析传入：用户混淆id，商品id，总价，插件id
@@ -113,7 +113,7 @@ public class QjcommitOrder extends ActionSupport {
 		//奇杰通信记录
 		//String saleImageFiles = ServletActionContext.getServletContext().getRealPath("/saleImageFiles");		 +		String saleImageFiles = ServletActionContext.getServletContext().getRealPath("/saleImageFiles");
   		// System.out.println(saleImageFiles);		  		// System.out.println(saleImageFiles);
-		String saleImageFiles = "/acs/jz/qjtxImageFiles";
+		String saleImageFiles = "/acs/upload";
 		File targetFile = new File(saleImageFiles);
 		// System.out.println("这是上传图片的路径："+targetFile.getPath());
 		if (!targetFile.mkdirs()) {

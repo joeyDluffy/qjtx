@@ -106,7 +106,7 @@ $(document).ready(function(){
     });  
 
 	pdatalist = new Array();
-
+ 
 	document.querySelector('#saleImg1').addEventListener('change', function () {
 	    // this.files[0] 是用户选择的文件
 		showLoader();
@@ -135,7 +135,9 @@ $(document).ready(function(){
 	        	hideLoader();
 	        });
 		}
-
+		var index = $(this).val().lastIndexOf("\\");
+		var sFileName = $(this).val().substr((index+1));
+		$("#rightText").html(sFileName+'等共'+this.files.length+'个文件');
 	});
 
 	$("#clear").bind(
@@ -283,6 +285,9 @@ $(document).ready(function(){
 		});
 }); 
 
+function selectFile() {  
+    $("#saleImg1").trigger("click");  
+} 
 
 function emailCheck(cmail) {    
     var pattern = /^([\.a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/;  

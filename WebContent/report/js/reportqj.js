@@ -99,7 +99,7 @@ function refreshTable() {
 					var imgfileS = value.split(";");
 					var display="";
 					for(var i=0;i<imgfileS.length-1;i++){
-						display = display+"<a class='example-image-link' data-lightbox='example' href='/saleImageFiles/" + imgfileS[i] + "' >点击查看身份凭证"+(i+1)+";</a>" +"</br>"
+						display = display+"<a class='example-image-link' data-lightbox='example' href='/jzimg/" + imgfileS[i] + "' >点击查看身份凭证"+(i+1)+";</a>" +"</br>"
 					}
 //					imgfileS.forEach(function(e){  
 //						display = display+"<a href='/vk002/saleImageFiles/" + e + "' target='_blank'>点击查看</a>" +"</br>" 

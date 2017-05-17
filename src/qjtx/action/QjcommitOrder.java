@@ -68,13 +68,13 @@ public class QjcommitOrder extends ActionSupport {
 		try {
 //			obj1.setMonthlyFee(0);
 			obj1.setBroadbandRate(qjorderdata.getBroadband_rat());
-			obj1.setEffectiveDate("");
+//			obj1.setEffectiveDate("");
 			obj1.setContractPeriod(qjorderdata.getContract_period());
 			obj1.setPackageDetails(qjorderdata.getPackage_details());
 			obj1.setPackageName(qjorderdata.getPackage_name());
 			obj1.setOperators("移动");
 			obj1.setProvince("上海");
-			obj1.setBroadbandAccount("");
+//			obj1.setBroadbandAccount("");
 			obj1.setMobile(qjorderdata.getMobile());
 			obj1.setIdNumber(qjorderdata.getId_number());
 			obj1.setName(qjorderdata.getCname());
@@ -111,8 +111,9 @@ public class QjcommitOrder extends ActionSupport {
 		
 		
 		//奇杰通信记录
-		String saleImageFiles = ServletActionContext.getServletContext().getRealPath("/saleImageFiles");
-		// System.out.println(saleImageFiles);
+		//String saleImageFiles = ServletActionContext.getServletContext().getRealPath("/saleImageFiles");		 +		String saleImageFiles = ServletActionContext.getServletContext().getRealPath("/saleImageFiles");
+  		// System.out.println(saleImageFiles);		  		// System.out.println(saleImageFiles);
+		String saleImageFiles = "/acs/jz/qjtxImageFiles";
 		File targetFile = new File(saleImageFiles);
 		// System.out.println("这是上传图片的路径："+targetFile.getPath());
 		if (!targetFile.mkdirs()) {

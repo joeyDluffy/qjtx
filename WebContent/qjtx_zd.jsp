@@ -13,7 +13,7 @@
 
 		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.2.css?v=1" />
-		<link rel="stylesheet" href="themes/qjtx.css?v=aaaa" />
+		<link rel="stylesheet" href="themes/qjtx.css?v=a1a1a" />
 		<script type="text/javascript" src="themes/jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" src="themes/jquery.mobile-1.4.2.min.js"></script>
 		<script type="text/javascript" src="qjtx_zd.js?v=aaaa"></script>
@@ -139,7 +139,7 @@
 				</div>
 				<div class="qj_whitediv">
 					<div class="qj_label">
-						<p style="height:20px; margin:10px .5em;">客户姓名：</p>
+						<p>客户姓名</p>
 					</div>
 					<div class="qj_textfield">
 						<input type="text" id="cname"></input>
@@ -147,7 +147,7 @@
 				</div>
 				<div class="qj_whitediv">
 					<div class="qj_label">
-						<p style="height:20px; margin:10px .5em;">手机号：</p>
+						<p>手机号</p>
 					</div>
 					<div class="qj_textfield">
 						<input type="number" id="mobile"></input>
@@ -155,24 +155,30 @@
 				</div>
 				<div class="qj_whitediv">
 					<div class="qj_label">
-						<p style="height:20px; margin:10px .5em;">身份证号：</p>
+						<p>身份证号</p>
 					</div>
 					<div class="qj_textfield">
 						<input type="text" id="id_number"></input>
 					</div>
 					
 				</div>
-				<div class="saleImg">
-			        <p>
-							身份证扫描／拍摄文件(正反面、可传多个文件)：
+				<div class="saleImg" style="height:80px; padding-top:30px;">
+			        <p style="margin-left:.5em">
+							身份证扫描/拍摄文件
+					</p>
+					<p style="font-size:15px; color:#999999; margins-bottom:0px">
+							(正反面、可传多个文件)
 					</p>
 				</div>
-				<div class="saleImg">
+				<div class="saleImg qj_file">
 			        <input id="saleImg1" type="file" accept="image/* multiple" multiple = "multiple" name="saleImg1"/>
-			        
+					<span class="custorm-style">
+						<span class="left-button" onClick="selectFile()">上传文件</span>
+						<span class="right-text" id="rightText"></span>
+					</span>
 				</div>
-				<div class="saleImg qj_whitediv">
-			        <p>
+				<div class="saleImg" >
+			        <p style="font-size:15px; margin-left:1em">
 							上传预览：<a id="clear" href="#" class="">清除文件</a>
 					</p>
 					
@@ -186,13 +192,13 @@
 						class="ui-btn-corner-all ui-btn ui-shadow qj_button">确认下单</a>
 				</div>
 
-				<div class="ui-text-vankezhu">
+				<div class="qj_normal">
 					<p>
-						注：为确保订单签约成功，请仔细填写，提交的信息真实有效！
+						注：为确保订单签约成功，请仔细填写，提交的信息真实有效！请保持联系电话畅通，您的专属客服会联系到您。
 					</p>
 				</div>
 				
-				<div class="ui-text-vanke">
+				<div class="qj_normal">
 					<hr style="height: 1px; background-color: #ccc; border: 0; margin: 0.6em; ">
 					<p>
 						 奇杰通信专营店

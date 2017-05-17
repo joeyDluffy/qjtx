@@ -91,7 +91,7 @@ public class QjcommitOrder extends ActionSupport {
 			req.setTotalPrice("0.01");
 			req.setExpiryDate(expiryDate);
 	//		req.setExpiryDate(StringUtils.parseDateTime("2016-07-29 12:12:12"));
-			req.setPluginInstanceId(254L);
+			req.setPluginInstanceId(Long.valueOf(qjorderdata.getInstance_id()));
 			req.setMerchantOrderId("23678698");
 		} catch (Exception e) {
 //			System.out.println(e.getMessage());

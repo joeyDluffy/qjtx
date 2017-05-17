@@ -295,7 +295,7 @@ $(document).ready(function(){
 			showLoader();
 			
 //			alert("bingo");
-			var jsondata = {"qjorderdata":{"imageList":pdatalist,"item_id":item_id,"merchant_order_id":merchant_order_id,"orderprice":orderprice,"mix_user_id":mix_user_id,"ordertime":ordertime,"service_type":service_type,"package_name":package_name,"monthly_fee":monthly_fee,"broadband_rat":broadband_rat,"package_price":package_price,"contract_period":contract_period,"package_details":package_details,"mobile":mobile,"id_number":id_number,"cname":cname,"installation_address":installation_address}};
+			var jsondata = {"qjorderdata":{"imageList":pdatalist,"item_id":item_id,"merchant_order_id":merchant_order_id,"orderprice":orderprice,"mix_user_id":mix_user_id,"ordertime":ordertime,"service_type":service_type,"package_name":package_name,"monthly_fee":monthly_fee,"broadband_rat":broadband_rat,"package_price":package_price,"contract_period":contract_period,"package_details":package_details,"mobile":mobile,"id_number":id_number,"cname":cname,"installation_address":installation_address,"instance_id":instance_id}};
 			$.ajax
 		    (
 		        {

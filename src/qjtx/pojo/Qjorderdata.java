@@ -172,5 +172,15 @@ public class Qjorderdata {
 	private String cname;
 	//身份证号
 	private String installation_address;
+	//身份证号
+	private String instance_id;
+
+	public String getInstance_id() {
+		return instance_id;
+	}
+
+	public void setInstance_id(String instance_id) {
+		this.instance_id = instance_id;
+	}
 
 }

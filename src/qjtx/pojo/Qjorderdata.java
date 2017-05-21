@@ -174,6 +174,16 @@ public class Qjorderdata {
 	private String installation_address;
 	//身份证号
 	private String instance_id;
+	//联系电话
+	private String tel;
+	
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
 
 	public String getInstance_id() {
 		return instance_id;

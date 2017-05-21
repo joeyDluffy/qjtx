@@ -423,7 +423,7 @@ button[disabled],
 .qj_content p{
 	color: #000;
 	margin: .5em;
-	font-size: 1.6em;
+	font-size: 14px;
 }
 
 .qj_whitediv {
@@ -431,7 +431,7 @@ button[disabled],
 		 margin:auto;
 
 		width: 100%;
-		height: 60px;
+		height: 45px;
 		padding:3px;
 		border-top: 1px solid #ddd;
 }
@@ -440,15 +440,15 @@ button[disabled],
 	margin:auto;
     width:30%;
     float:left;
-    height:60px;
+    height:45px;
 	padding:0px;
 	vertical-align:middle;
 }
 .qj_label p{
 		margin: 0px 0px 0px 10px;
-		line-height:60px;   
-		height: 60px;
-		font-size: 22px;
+		line-height:45px;   
+		height: 45px;
+		font-size: 14px;
         text-align: left;
 }
 .qj_textdiv {
@@ -457,23 +457,25 @@ button[disabled],
     margin: 0;
 }
 .qj_textfield {
-	height:60px;
+	height:45px;
 	float: right;
     width: 70%;
 }
 
 .qj_textfield input{
-	height:60px;
-	font-size: 22px;
+	height:45px;
+	font-size: 13px;
 	color:#999999;
 	padding:10px 10px;
 }
 
 .qj_button {
+	font-weight:normal;
 	border-radius:10px;
 	padding:12px;
 	margin:15px 30px;
-	font-size: 22px;
+	font-size: 16px;
+	font-family:STHeitiSC-Light;
 }
 
 .qj_file {
@@ -484,7 +486,7 @@ position:relative;
 .qj_file input {
 opacity:0;
 filter:alpha(opacity=0);
-font-size:100px;
+font-size:14px;
 position:absolute;
 top:0;
 right:0;
@@ -492,14 +494,14 @@ right:0;
 
 .qj_normal{
 	float: left;
-	font-size:1em;
+	font-size:10px;
     width: 100%;
     padding:0px;
 	}
 .qj_normal p{
 	color: #888;
 	margin: .7em;
-	font-size: 1.2em;
+	font-size: 10px;
 	}
 .saleImg{
 	border-color: #ffffff;
@@ -507,7 +509,7 @@ right:0;
 	text-shadow: 0 /*{a-body-shadow-x}*/ 1px /*{a-body-shadow-y}*/ 0 /*{a-body-shadow-radius}*/ #ffffff /*{a-body-shadow-color}*/;
 	border-top: 1px solid #ddd;
 	float: left;
-	font-size:1em;
+	font-size:10px;
     width: 100%;
     padding:0px;
 	}
@@ -526,12 +528,12 @@ right:0;
 .qj_file .custorm-style{
     display: block;
     width: 100%;
-    height: 50px;
+    height: 45px;
 }
 .qj_file .custorm-style .left-button{
 	font-family:STHeitiSC-Light;
     width: 20%;
-    font-size:18px;
+    font-size:14px;
     padding:.3em;
     margin:.5em;
     line-height: 35px;
@@ -541,6 +543,7 @@ right:0;
     text-align: center;
     float: left;
    	border-radius:10px;
+   	text-shadow:0 0 0 #fff;
 }
 .qj_file .custorm-style .right-text{
 	font-size: 15px

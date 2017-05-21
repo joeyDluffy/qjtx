@@ -8,12 +8,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<meta name="format-detection" content="telephone=no">
 		<meta name="spm-id" content="a1z51.23759189"/>
-		<title>奇杰通信天猫营业厅</title>
+		<title>终端服务</title>
 		<script type="text/javascript" src="//g.alicdn.com/tmapp/tida2/2.2.16/tida.js?appkey=23759189"></script>
 
 		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.2.css?v=1" />
-		<link rel="stylesheet" href="themes/qjtx.css?v=a1a1a" />
+		<link rel="stylesheet" href="themes/qjtx.css?v=a1a1aa" />
 		<script type="text/javascript" src="themes/jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" src="themes/jquery.mobile-1.4.2.min.js"></script>
 		<script type="text/javascript" src="qjtx_zd.js?v=aaaa"></script>
@@ -43,6 +43,7 @@
 			var id_number;
 			var cname;
 			var installation_address;
+			var tel;
 			
 			//function GetQueryString(name) {
 			//	   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
@@ -147,10 +148,18 @@
 				</div>
 				<div class="qj_whitediv">
 					<div class="qj_label">
-						<p>手机号</p>
+						<p>套餐号码</p>
 					</div>
 					<div class="qj_textfield">
 						<input type="number" id="mobile"></input>
+					</div>
+				</div>
+				<div class="qj_whitediv">
+					<div class="qj_label">
+						<p>联系电话</p>
+					</div>
+					<div class="qj_textfield">
+						<input type="number" id="tel"></input>
 					</div>
 				</div>
 				<div class="qj_whitediv">
@@ -162,7 +171,7 @@
 					</div>
 					
 				</div>
-				<div class="saleImg" style="height:80px; padding-top:30px;">
+				<div class="saleImg" style="height:60px; padding-top:30px;">
 			        <p style="margin-left:.5em">
 							身份证扫描/拍摄文件
 					</p>
@@ -188,8 +197,8 @@
 				</div>
 				
 				<div class="saleImg">
-					<a id="ordersubmit" href="#"
-						class="ui-btn-corner-all ui-btn ui-shadow qj_button">确认下单</a>
+					<a id="ordersubmit" style="font-weight:normal;" href="#"
+						class="qj_button ui-btn-corner-all ui-btn ui-shadow">确认下单</a>
 				</div>
 
 				<div class="qj_normal">
@@ -204,6 +213,19 @@
 						 奇杰通信专营店
 					</p>
 				</div>
+			</div>
+		</div>
+		<div data-role="dialog" id="inputerror_dialog">
+			<div data-role="header">
+				<h1 style="height:45px">
+					提交信息验证失败
+				</h1>
+			</div>
+			<div data-role="content">
+				<p id="inputerror">
+					数据提交错误！
+				</p>
+				<a href="#" id="errorconfirm" class="qj_button ui-btn-corner-all ui-btn ui-shadow">确认</a>
 			</div>
 		</div>
 	</body>

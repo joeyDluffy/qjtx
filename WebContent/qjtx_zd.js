@@ -152,38 +152,44 @@ $(document).ready(function(){
 			//是否是从淘宝中进入check
 			if (mix_user_id == null || mix_user_id=="") 
 			{	
-				alert("请从手机淘宝中购买套餐续约服务！"); 
+				showInputErrorDlg("请从手机淘宝中购买套餐续约服务！");
+				//alert("请从手机淘宝中购买套餐续约服务！"); 
 				return;
 			} 
 			//套餐类型
 			if (service_type == "") 
 			{	
-				alert("请选择套餐类型"); 
+				showInputErrorDlg("请选择套餐类型");
+//				alert(); 
 				return;
 			} 
 			//套餐选择值
 			if (package_name == "") 
 			{	
-				alert("请选择套餐"); 
+				showInputErrorDlg("请选择套餐");
+//				alert(); 
 				return;
 			} 
 
 			//资费选择值
 			if (monthly_fee == "") 
 			{	
-				alert("请选择套餐档"); 
+				showInputErrorDlg("请选择套餐档");
+//				alert(); 
 				return;
 			} 
 			//协议期
 			if (contract_period == "") 
 			{	
-				alert("请选择协议期"); 
+				showInputErrorDlg("请选择协议期");
+//				alert("请选择协议期"); 
 				return;
 			} 
 			//客户名称必填
 			if ($("#cname").val() == "" ) 
 			{	
-				alert("客户姓名不能为空"); 
+				showInputErrorDlg("客户姓名不能为空");
+//				alert("客户姓名不能为空"); 
 				$("#cname").css("background","yed");
 				$("#cname").focus();
 				return;
@@ -195,26 +201,41 @@ $(document).ready(function(){
 			//电话号码不能为空
 			if ($("#mobile").val() == "" ) 
 			{	
-				alert("手机号码不能为空"); 
+				showInputErrorDlg("手机号码不能为空");
+//				alert("手机号码不能为空"); 
 				return;
 			}
 			//身份证号不能空
 			if ($("#id_number").val() == "" ) 
 			{	
-				alert("身份证号不能为空"); 
+				showInputErrorDlg("身份证号不能为空");
+//				alert("身份证号不能为空"); 
 				return;
 			}
 			
 			//手机号码验证
 			if (!IsTel($("#mobile").val())) 
 			{	
-				alert("非手机号码！"); 
+				showInputErrorDlg("非手机号码!");
+//				alert("非手机号码！"); 
 				$("#mobile").val("");
 				return;
 			}
 			else
 			{
 				mobile=$("#mobile").val();
+			}
+			//联系人手机验证
+			if (!IsTel($("#tel").val())) 
+			{	
+				showInputErrorDlg("非手机号码!");
+//				alert("非手机号码！"); 
+				$("#tel").val("");
+				return;
+			}
+			else
+			{
+				tel=$("#tel").val();
 			}
 			//身份证号合理验证
 			if (!IdentityCodeValid($("#id_number").val())) 
@@ -229,18 +250,20 @@ $(document).ready(function(){
 			//身份证上传验证
 			var imgvalue = $("#saleImg1").attr("value");
 		    if(imgvalue == null || imgvalue==""){
-		    	alert("请上传身份证正反面扫描件/清晰照片！"); 
+		    	showInputErrorDlg("请上传身份证正反面扫描件/清晰照片！");
+//		    	alert("请上传身份证正反面扫描件/清晰照片！"); 
 				return;
 		    }
 		    if (pdatalist ==null || pdatalist.length<1){
-		    	alert("请上传身份证正反面扫描件/清晰照片！"); 
+		    	showInputErrorDlg("请上传身份证正反面扫描件/清晰照片！");
+//		    	alert("请上传身份证正反面扫描件/清晰照片！"); 
 				return;
 		    }
 		    package_details=$("#servicetype").val()+": "+package_name+" "+monthly_fee+" "+broadband_rat+" "+contract_period;
 			showLoader();
 			
 //			alert("bingo");
-			var jsondata = {"qjorderdata":{"imageList":pdatalist,"item_id":item_id,"merchant_order_id":merchant_order_id,"orderprice":orderprice,"mix_user_id":mix_user_id,"ordertime":ordertime,"service_type":service_type,"package_name":package_name,"monthly_fee":monthly_fee,"broadband_rat":broadband_rat,"package_price":package_price,"contract_period":contract_period,"package_details":package_details,"mobile":mobile,"id_number":id_number,"cname":cname,"installation_address":installation_address,"instance_id":instance_id}};
+			var jsondata = {"qjorderdata":{"tel":tel,"imageList":pdatalist,"item_id":item_id,"merchant_order_id":merchant_order_id,"orderprice":orderprice,"mix_user_id":mix_user_id,"ordertime":ordertime,"service_type":service_type,"package_name":package_name,"monthly_fee":monthly_fee,"broadband_rat":broadband_rat,"package_price":package_price,"contract_period":contract_period,"package_details":package_details,"mobile":mobile,"id_number":id_number,"cname":cname,"installation_address":installation_address,"instance_id":instance_id}};
 			$.ajax
 		    (
 		        {
@@ -265,7 +288,8 @@ $(document).ready(function(){
 						var retError=data.retError;
 
 						if (retMessage.indexOf("err:")>=0) {
-							alert(retMessage+"\n"+retError);
+					    	showInputErrorDlg(retMessage+"\n"+retError);
+//							alert(retMessage+"\n"+retError);
 							
 						} else {
 						//	Tida.bulidOrder({tradeExToken:regMessage,tradeToken:tradeToken});
@@ -416,9 +440,19 @@ function IsTel(Tel){
                     }
                 }
             }
-            if(!pass) alert("身份证号"+tip);
+            if(!pass) 
+            	showInputErrorDlg("身份证号:  "+tip);
+//            	alert();
             return pass;
         }
+function showInputErrorDlg(errortext) {
+		$("#inputerror").text(errortext); 
+		$("#errorconfirm").unbind("click").bind("click", function () {
+			$("#inputerror_dialog").dialog("close");
+		
+		});
+		   $.mobile.changePage( "#inputerror_dialog", { role: "dialog" } );
+		   }
 function showLoader() {  
     //显示加载器.for jQuery Mobile 1.2.0  
     $.mobile.loading('show', {  

@@ -72,7 +72,8 @@
 			-->
 			<div role="main" class="qj_content">
 				<div style="margin-top:.8em;">
-					<a id="showInfoDlg" href="#" title="套餐详细" style="margin-left:.5em; font-size:15px;" >套餐详细</a>
+					<a id="showInfoDlg" href="#" title="套餐详细" style="margin-left:.5em; font-size:15px;" >4G签约赠话费详情</a>
+					<a id="showInfoDlg2" href="#" title="套餐详细" style="margin-left:.5em; font-size:15px;" >资费签约详情</a>
 					<hr style="height: 1px; background-color: #ccc; border: 0; margin: 0.5em;">
 				</div>
 				
@@ -100,6 +101,7 @@
 									<li data-aid="188元"><a href="javascript:;" title="188元">188元</a><i></i></li>
 									<li data-aid="228元"><a href="javascript:;" title="228元">228元</a><i></i></li>
 									<li data-aid="288元"><a href="javascript:;" title="288元">288元</a><i></i></li>
+									<li data-aid="388元"><a href="javascript:;" title="388元">388元</a><i></i></li>
 								</ul>
 				
 							</dd>

@@ -50,6 +50,15 @@ public class QjoperateOrders extends ActionSupport {
 		sd.setOperatestatus(peratestatus);
 		sd.setOperaterid(reviewopid);
 		sd.setOperatetime(reviewTime);
+		if (tborderid !=null & !"".equals(tborderid) && peratestatus !=null & !"".equals(peratestatus)){
+			sd.setOpstatus_value(2);
+		} else {
+			if (peratestatus !=null & !"".equals(peratestatus)){
+				sd.setOpstatus_value(1);
+			} else {
+				sd.setOpstatus_value(0);
+			}
+		}
 		sd.setTb_orderid(tborderid);
 		while (retry > 0) {
 			try {

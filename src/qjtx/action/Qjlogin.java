@@ -47,6 +47,7 @@ public class Qjlogin extends ActionSupport {
 					Qjoperaters u = qjmanageService.login(username);
 					if (u != null && u.getOperaterid().equals(username) && u.getOpassword().equals(pwd)) {
 						userdisplayname = u.getOperatername();
+						reviewopid = u.getOperaterid();
 						ActionContext.getContext().getSession().put("qjop_user", username);
 						this.success = true;
 						return SUCCESS;
@@ -67,13 +68,13 @@ public class Qjlogin extends ActionSupport {
 	private boolean success;
 	private String username;
 	private String userdisplayname;
-	private int reviewopid;
+	private String reviewopid;
 
-	public int getReviewopid() {
+	public String getReviewopid() {
 		return reviewopid;
 	}
 
-	public void setReviewopid(int reviewopid) {
+	public void setReviewopid(String reviewopid) {
 		this.reviewopid = reviewopid;
 	}
 

@@ -58,21 +58,17 @@
             <!-- 当返回login视图名时，转入/login.jsp页面 -->  
             <result name="login">/login.jsp</result>  
         </global-results>  
-		<action name="reviewSalesData" class="qjtx.action.ReviewSalesData">
-			<result type="json" name="success">
-			</result>
-			<result name="input">error.html</result>
-		</action>
-		<action name="reportSalesDataForOp" class="qjtx.action.ReportSalesDataForOp">
-			<result type="json" name="success">
-			</result>
-			<result name="input">error.html</result>
-		</action>
+
 		<!-- qjtx actions -->
 		<action name="qjlogin" class="qjtx.action.Qjlogin">
 			<result name="success">/reportData.jsp</result>	
 			<result name="error">/login.jsp</result>
 			<result name="input">/login.jsp</result>
+		</action>
+		<action name="qjoperateOrders" class="qjtx.action.QjoperateOrders">
+			<result type="json" name="success">
+			</result>
+			<result name="input">error.html</result>
 		</action>
 		<action name="qjOrdersData" class="qjtx.action.QjOrdersData">
 			<result type="json" name="success">

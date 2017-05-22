@@ -34,7 +34,8 @@ function refreshTable() {
 		
 		{title:"订单", field:"orderid", sorter:"string",width:"60px"},
 		{title:"客户名", field:"cname", sorter:"string",width:"80px"},
-		{title:"客户手机", field:"mobile", sorter:"string",width:"100px"},
+		{title:"套餐手机", field:"mobile", sorter:"string",width:"100px"},
+		{title:"联系电话", field:"tel", sorter:"string",width:"100px"},
 		{title:"选择套餐内容", field:"package_details", sorter:"string"},
 		{title:"身份证号", field:"id_number", sorter:"string",width:"170px"},
 		{title:"淘宝订单号", field:"tb_orderid", sorter:"string", editable: true, formatter:function(value, data, cell, row, options){
@@ -48,7 +49,7 @@ function refreshTable() {
 		{title:"签订状态", field:"operatestatus", sorter:"string", editable: true, formatter:function(value, data, cell, row, options){
 			return value;
 		},width:"100px"},
-		{title:"处理订单", field:"operateBtn", align:"center", formatter:"progress",editable:true, 
+		{title:"处理订单", field:"operateBtn", align:"center", formatter:"qjStatus",editable:true, 
 			onClick:function(e, cell, val, row)
 			{
 
@@ -56,6 +57,7 @@ function refreshTable() {
 					{
 						var orderid = row['orderid'];
 						var tb_orderid = row['tb_orderid'];
+						var operatestatus = row['operatestatus'];
 						if (orderid !=null && orderid !="") {
 							var mymessage=confirm("确认更新订单状态？");  
 						    if(mymessage==true)  
@@ -63,7 +65,8 @@ function refreshTable() {
 						    	var submitData={
 						    			orderid:orderid,
 						    			tb_orderid:tb_orderid,
-										reviewopid:reviewopid
+						    			operaterid:reviewopid,
+										operatestatus:operatestatus
 									    }; 
 								$.ajax
 							    (

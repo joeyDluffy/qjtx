@@ -150,6 +150,10 @@ $(document).ready(function(){
 			"click", function() {
 				showInfoDlg("img/4gqy.png");
 			});	
+	$("#showInfoDlg2").bind(
+			"click", function() {
+				showInfoDlg("img/zfqy.png");
+			});	
 	//提交
 	$("#ordersubmit").bind(
 		"click", function() {

@@ -134,6 +134,7 @@ public class QjcommitOrder extends ActionSupport {
 
 
 		try {
+			qjorder.setOpstatus_value(0);
 			qjorder.setId_images(imgFileString);
 			qjorder.setAttach_info(qjorderdata.getMerchant_order_id());	
 			qjorder.setMix_user_id(qjorderdata.getMix_user_id());

@@ -71,11 +71,9 @@
 			</div>
 			-->
 			<div role="main" class="qj_content">
-				<div>
-					<p>
-					选择套餐：
-				</p>
-					<hr style="height: 1px; background-color: #ccc; border: 0; margin: 0.6em; ">
+				<div style="margin-top:.8em;">
+					<a id="showInfoDlg" href="#" title="套餐详细" style="margin-left:.5em; font-size:15px;" >套餐详细</a>
+					<hr style="height: 1px; background-color: #ccc; border: 0; margin: 0.5em;">
 				</div>
 				
  				<div class="sys_item_spec"> 
@@ -159,7 +157,7 @@
 						<p>联系电话</p>
 					</div>
 					<div class="qj_textfield">
-						<input type="number" id="tel"></input>
+						<input type="number" id="tel" placeholder="客服人员联系用--9:00~18:00"></input>
 					</div>
 				</div>
 				<div class="qj_whitediv">
@@ -215,14 +213,24 @@
 				</div>
 			</div>
 		</div>
-		<div data-role="dialog" id="inputerror_dialog">
+		<div data-role="dialog" id="info_dialog" class="qj_infodialog">
 			<div data-role="header">
-				<h1 style="height:45px">
-					提交信息验证失败
-				</h1>
+				<h1 style="height:20px; font-size:16px;" id="infodialog">
+					套餐信息
+				</h1>	
 			</div>
 			<div data-role="content">
-				<p id="inputerror">
+				<img src="" id="infoimg" style="width:100%"></img>
+			</div>
+		</div>
+		<div data-role="dialog" id="inputerror_dialog" class="qj_dialog">
+			<div data-role="header">
+				<h1 style="height:20px; font-size:16px;">
+					提交信息验证失败
+				</h1>	
+			</div>
+			<div data-role="content">
+				<p id="inputerror" style="height:45px; font-size:16px;text-align: center;margin-top:5px;">
 					数据提交错误！
 				</p>
 				<a href="#" id="errorconfirm" class="qj_button ui-btn-corner-all ui-btn ui-shadow">确认</a>

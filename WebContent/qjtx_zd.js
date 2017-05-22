@@ -146,6 +146,10 @@ $(document).ready(function(){
 				document.querySelector('#imageshow img').remove();
 				$("#saleImg1").attr('value','');
 			});
+	$("#showInfoDlg").bind(
+			"click", function() {
+				showInfoDlg("img/4gqy.png");
+			});	
 	//提交
 	$("#ordersubmit").bind(
 		"click", function() {
@@ -202,6 +206,7 @@ $(document).ready(function(){
 			if ($("#mobile").val() == "" ) 
 			{	
 				showInputErrorDlg("手机号码不能为空");
+				$("#mobile").focus();
 //				alert("手机号码不能为空"); 
 				return;
 			}
@@ -209,6 +214,7 @@ $(document).ready(function(){
 			if ($("#id_number").val() == "" ) 
 			{	
 				showInputErrorDlg("身份证号不能为空");
+				$("#id_number").focus();
 //				alert("身份证号不能为空"); 
 				return;
 			}
@@ -217,6 +223,7 @@ $(document).ready(function(){
 			if (!IsTel($("#mobile").val())) 
 			{	
 				showInputErrorDlg("非手机号码!");
+				$("#mobile").focus();
 //				alert("非手机号码！"); 
 				$("#mobile").val("");
 				return;
@@ -229,6 +236,7 @@ $(document).ready(function(){
 			if (!IsTel($("#tel").val())) 
 			{	
 				showInputErrorDlg("非手机号码!");
+				$("#tel").focus();
 //				alert("非手机号码！"); 
 				$("#tel").val("");
 				return;
@@ -241,6 +249,7 @@ $(document).ready(function(){
 			if (!IdentityCodeValid($("#id_number").val())) 
 			{	
 //				$("#contractperiod").val("");
+				$("#id_number").focus();
 				return;
 			}
 			else
@@ -445,14 +454,18 @@ function IsTel(Tel){
 //            	alert();
             return pass;
         }
+        
 function showInputErrorDlg(errortext) {
-		$("#inputerror").text(errortext); 
-		$("#errorconfirm").unbind("click").bind("click", function () {
-			$("#inputerror_dialog").dialog("close");
-		
-		});
-		   $.mobile.changePage( "#inputerror_dialog", { role: "dialog" } );
-		   }
+	$("#inputerror").text(errortext); 
+	$("#errorconfirm").unbind("click").bind("click", function () {
+		$("#inputerror_dialog").dialog("close");
+	});
+	$.mobile.changePage( "#inputerror_dialog", { role: "dialog" } );
+	}
+function showInfoDlg(imgsrc) {
+	$("#infoimg").attr('src',imgsrc); 
+	$.mobile.changePage( "#info_dialog", { role: "dialog" } );
+	}
 function showLoader() {  
     //显示加载器.for jQuery Mobile 1.2.0  
     $.mobile.loading('show', {  

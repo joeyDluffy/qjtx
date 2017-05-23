@@ -47,7 +47,7 @@ public class QjmanageService {
 	
 	public int operateOrders(Qjorders qjorders) {
 		int ret = 0;
-		ret = qjordersMapper.operateByOrderid(qjorders);
+		ret = qjordersMapper.updateByPrimaryKeySelective(qjorders);
 		return ret;
 
 	}

@@ -47,13 +47,13 @@ public class QjoperateOrders extends ActionSupport {
 		Date reviewTime = new Date();
 		Qjorders sd = new Qjorders();
 		sd.setOrderid(Integer.valueOf(orderid));
-		sd.setOperatestatus(peratestatus);
+		sd.setOperatestatus(operatestatus);
 		sd.setOperaterid(reviewopid);
 		sd.setOperatetime(reviewTime);
-		if (tborderid !=null & !"".equals(tborderid) && peratestatus !=null & !"".equals(peratestatus)){
+		if (tborderid !=null & !"".equals(tborderid) && operatestatus !=null & !"".equals(operatestatus)){
 			sd.setOpstatus_value(2);
 		} else {
-			if (peratestatus !=null & !"".equals(peratestatus)){
+			if (tborderid !=null & !"".equals(tborderid)){
 				sd.setOpstatus_value(1);
 			} else {
 				sd.setOpstatus_value(0);
@@ -87,13 +87,15 @@ public class QjoperateOrders extends ActionSupport {
 	private String orderid;
 	private String reviewopid;
 	private String tborderid;
-	private String peratestatus;
-	public String getPeratestatus() {
-		return peratestatus;
+	private String operatestatus;
+
+
+	public String getOperatestatus() {
+		return operatestatus;
 	}
 
-	public void setPeratestatus(String peratestatus) {
-		this.peratestatus = peratestatus;
+	public void setOperatestatus(String operatestatus) {
+		this.operatestatus = operatestatus;
 	}
 
 	public String getTborderid() {

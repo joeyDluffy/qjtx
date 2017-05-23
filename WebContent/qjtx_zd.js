@@ -272,7 +272,7 @@ $(document).ready(function(){
 //		    	alert("请上传身份证正反面扫描件/清晰照片！"); 
 				return;
 		    }
-		    package_details=$("#servicetype").val()+": "+package_name+" "+monthly_fee+" "+broadband_rat+" "+contract_period;
+		    package_details="协议内容: "+package_name+" "+monthly_fee+" "+broadband_rat+" "+contract_period;
 			showLoader();
 			
 //			alert("bingo");

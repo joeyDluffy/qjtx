@@ -49,14 +49,14 @@ function refreshTable() {
 		{title:"签订状态", field:"operatestatus", sorter:"string", editable: true, formatter:function(value, data, cell, row, options){
 			return value;
 		},width:"100px"},
-		{title:"处理订单", field:"operateBtn", align:"center", formatter:"qjStatus",editable:true, 
+		{title:"处理订单", field:"opstatus_value", align:"center", formatter:"qjStatus",editable:true, 
 			onClick:function(e, cell, val, row)
 			{
 
-				if(val != 1)
+				if(val != 2)
 					{
 						var orderid = row['orderid'];
-						var tb_orderid = row['tb_orderid'];
+						var tborderid = row['tb_orderid'];
 						var operatestatus = row['operatestatus'];
 						if (orderid !=null && orderid !="") {
 							var mymessage=confirm("确认更新订单状态？");  
@@ -64,8 +64,8 @@ function refreshTable() {
 						    {   
 						    	var submitData={
 						    			orderid:orderid,
-						    			tb_orderid:tb_orderid,
-						    			operaterid:reviewopid,
+						    			tborderid:tborderid,
+						    			reviewopid:reviewopid,
 										operatestatus:operatestatus
 									    }; 
 								$.ajax

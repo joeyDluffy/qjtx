@@ -43,8 +43,8 @@
 		var reviewopid = '<s:property value="reviewopid"/>';
 		
 	</script>
-	<script type="text/javascript" src="report/js/tabulator.js"></script>
-	<script type="text/javascript" src="report/js/reportqj.js?v=201705"></script>
+	<script type="text/javascript" src="report/js/tabulator.js?v=2017aa"></script>
+	<script type="text/javascript" src="report/js/reportqj.js?v=2017aa"></script>
 	<link rel="stylesheet" type="text/css" href="report/css/default.css">
 	<style type="text/css">
 	body{

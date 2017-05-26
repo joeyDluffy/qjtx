@@ -1143,6 +1143,14 @@ formatters:{
 
 		return stars.html();
 	},
+	qjselect:function(value, data, cell, row, options){ 
+
+		cell.css({
+			"min-width":"30px",
+		});
+
+		return "<select name='sel'> <option value='未付款'>未付款</option><option value='已付款'>已付款</option> <option value='签订成功'>签订成功</option><option value='签订失败'>签订失败</option></select>"
+	},
 	progress:function(value, data, cell, row, options){ //progress bar
 		value = parseFloat(value) <= 100 ? parseFloat(value) : 100;
 

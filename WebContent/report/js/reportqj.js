@@ -46,9 +46,7 @@ function refreshTable() {
 				return '';
 			}
 		},width:"120px"},
-		{title:"签订状态", field:"operatestatus", sorter:"string", editable: true, formatter:function(value, data, cell, row, options){
-			return value;
-		},width:"100px"},
+		{title:"签订状态", field:"operatestatus", editable: false, formatter:"qjselect",width:"100px"},
 		{title:"处理订单", field:"opstatus_value", align:"center", formatter:"qjStatus",editable:true, 
 			onClick:function(e, cell, val, row)
 			{

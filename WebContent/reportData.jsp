@@ -41,10 +41,23 @@
 		var selectDate = new Date().Format("yyyy-MM-dd");
 		var username = '<s:property value="userdisplayname"/>';
 		var reviewopid = '<s:property value="reviewopid"/>';
-		
+		$( "#dialog-confirm" ).dialog({
+		      resizable: false,
+		      height: "auto",
+		      width: 400,
+		      modal: true,
+		      buttons: {
+		        "Delete all items": function() {
+		          $( this ).dialog( "close" );
+		        },
+		        Cancel: function() {
+		          $( this ).dialog( "close" );
+		        }
+		      }
+		    });
 	</script>
-	<script type="text/javascript" src="report/js/tabulator.js?v=2017aa"></script>
-	<script type="text/javascript" src="report/js/reportqj.js?v=2017aa"></script>
+	<script type="text/javascript" src="report/js/tabulator.js?v=1234ddsdd"></script>
+	<script type="text/javascript" src="report/js/reportqj.js?v=1234ddsdd"></script>
 	<link rel="stylesheet" type="text/css" href="report/css/default.css">
 	<style type="text/css">
 	body{

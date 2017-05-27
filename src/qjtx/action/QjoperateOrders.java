@@ -26,6 +26,12 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import sun.misc.BASE64Decoder;
+import com.taobao.api.DefaultTaobaoClient;
+import com.taobao.api.TaobaoClient;
+import com.taobao.api.internal.util.StringUtils;
+import com.taobao.api.request.AlibabaAliqinTradeCreateRequest;
+import com.taobao.api.request.AlibabaAliqinTradeCreateRequest.Exproperty;
+import com.taobao.api.response.AlibabaAliqinTradeCreateResponse;
 
 @Controller
 public class QjoperateOrders extends ActionSupport {
@@ -47,10 +53,23 @@ public class QjoperateOrders extends ActionSupport {
 		Date reviewTime = new Date();
 		Qjorders sd = new Qjorders();
 		sd.setOrderid(Integer.valueOf(orderid));
+		operatestatus = URLDecoder.decode(operatestatus, "UTF-8");
 		sd.setOperatestatus(operatestatus);
 		sd.setOperaterid(reviewopid);
 		sd.setOperatetime(reviewTime);
-		if (tborderid !=null & !"".equals(tborderid) && operatestatus !=null & !"".equals(operatestatus)){
+		if (tborderid !=null & !"".equals(tborderid) 
+				&& operatestatus !=null & !"".equals(operatestatus) 
+				&& "签订成功".equals(operatestatus)){
+//			TaobaoClient client = new DefaultTaobaoClient(url, appkey, secret);
+//			WtTradeOrderResultcallbackRequest req = new WtTradeOrderResultcallbackRequest();
+//			OrderResultDto obj1 = new OrderResultDto();
+//			obj1.setDesc("定单处理完成");
+//			obj1.setOrderNo(12345678L);
+//			obj1.setResultCode("0000");
+//			obj1.setSuccess(true);
+//			req.setParam0(obj1);
+//			WtTradeOrderResultcallbackResponse rsp = client.execute(req, sessionKey);
+//			System.out.println(rsp.getBody());
 			sd.setOpstatus_value(2);
 		} else {
 			if (tborderid !=null & !"".equals(tborderid)){

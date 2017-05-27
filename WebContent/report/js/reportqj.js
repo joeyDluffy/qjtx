@@ -55,7 +55,8 @@ function refreshTable() {
 					{
 						var orderid = row['orderid'];
 						var tborderid = row['tb_orderid'];
-						var operatestatus = row['operatestatus'];
+						//var operatestatus = row['operatestatus'];
+						var operatestatus = encodeURI($("#qjselect"+row['orderid']).val());
 						if (orderid !=null && orderid !="") {
 							var mymessage=confirm("确认更新订单状态？");  
 						    if(mymessage==true)  
@@ -74,6 +75,7 @@ function refreshTable() {
 										url:'qjoperateOrders',
 							            dataType: "json",
 							            data:submitData,
+							            scriptCharset: 'utf-8',
 							            success: function (data)  
 							            {		            	
 

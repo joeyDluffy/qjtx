@@ -130,11 +130,15 @@ function refreshTable() {
 	filterData();
 }
 $(window).load(function(){
+
+	$("#downloaddata").click(function(){
+
+	    });
 //	flushdata();
 	if (username != null && username !='') {
 		$("#uuuu").text("用户: " + username);
 		refreshTable();
-//		$("#saleday").attr('value',selectDate);
+		$("#saleday").attr('value',selectDate);
 		document.querySelector('#saleday').addEventListener('change', function () {
 			selectDate = $("#saleday").val();
 //			$("#qbvk-table").remove();

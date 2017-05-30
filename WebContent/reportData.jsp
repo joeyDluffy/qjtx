@@ -56,8 +56,9 @@
 		      }
 		    });
 	</script>
-	<script type="text/javascript" src="report/js/tabulator.js?v=1234ddsdd"></script>
-	<script type="text/javascript" src="report/js/reportqj.js?v=1234ddsdd"></script>
+	<script type="text/javascript" src="report/js/tabulator.js?v=122"></script>
+	<script type="text/javascript" src="report/js/reportqj.js?v=122"></script>
+	
 	<link rel="stylesheet" type="text/css" href="report/css/default.css">
 	<style type="text/css">
 	body{
@@ -124,9 +125,12 @@
 			
 		</header>
 		 <div class="dateSelect">
+		 	
 			<div class="dateSelect1">
-				<input type="date" id="saleday"></input>
+				<input type="date" id="saleday"></input>之后的订单
+				<button  id="downloaddata"></button>
 			</div>
+			
 			<%--
 			<div class="dateSelect2">
 				<input type="checkbox" id="isReview">已提交未审核</input>

@@ -157,6 +157,7 @@ $(document).ready(function(){
 	//提交
 	$("#ordersubmit").bind(
 		"click", function() {
+
 			//是否是从淘宝中进入check
 			if (mix_user_id == null || mix_user_id=="") 
 			{	
@@ -271,6 +272,10 @@ $(document).ready(function(){
 		    	showInputErrorDlg("请上传身份证正反面扫描件/清晰照片！");
 //		    	alert("请上传身份证正反面扫描件/清晰照片！"); 
 				return;
+		    }
+		    if (!$("#XYchkbox").get(0).checked) { 
+		    	showInputErrorDlg("请勾选确认用户协议");
+		    	return;
 		    }
 		    package_details="协议内容: "+package_name+" "+monthly_fee+" "+broadband_rat+" "+contract_period;
 			showLoader();

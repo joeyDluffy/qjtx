@@ -13,10 +13,10 @@
 
 		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.2.css?v=1" />
-		<link rel="stylesheet" href="themes/qjtx.css?v=a1a1aa" />
+		<link rel="stylesheet" href="themes/qjtx.css?v=a1a1aaaaaa" />
 		<script type="text/javascript" src="themes/jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" src="themes/jquery.mobile-1.4.2.min.js"></script>
-		<script type="text/javascript" src="qjtx_zd.js?v=aaaa"></script>
+		<script type="text/javascript" src="qjtx_zd.js?v=aaaaaa"></script>
 		<script type="text/javascript" src="dist/lrz.bundle.js"></script>
 		<script>
 			var tida=Tida.ready({
@@ -193,7 +193,14 @@
 					
 				</div>
 				<div class="saleImg" id ="imageshow">
-				
+				</div>
+				<div class="qj_checkboxdiv">
+					<div class="qj_checkbox" style="margin-top:.9em; margin-right:0em;" >
+						<input id="XYchkbox" type="checkbox"></input>
+					</div>
+					<div class="qj_checkbox_a" style="margin-top:.6em;" >
+						<a id="showXYDlg" href="#" title="用户协议" style="margin-left:.5em; font-size:15px;" >已确认用户协议</a>
+					</div>
 				</div>
 				
 				<div class="saleImg">

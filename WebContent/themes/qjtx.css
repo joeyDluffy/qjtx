@@ -462,6 +462,22 @@ button[disabled],
     width: 70%;
 }
 
+.qj_checkboxdiv {
+	width: 100%;
+}
+.qj_checkbox {
+    width:3%;
+    float:left;
+    margin-left:5px;
+    height:35px;
+	vertical-align:middle;
+}
+.qj_checkbox_a{
+	height:35px;
+	float: right;
+	margin-left=-30px;
+    width: 96%;
+}
 .qj_textfield input{
 	height:45px;
 	font-size: 13px;

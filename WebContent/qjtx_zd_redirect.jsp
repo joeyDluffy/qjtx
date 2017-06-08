@@ -13,10 +13,10 @@
 
 		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.2.css?v=1" />
-		<link rel="stylesheet" href="themes/qjtx.css?v=a1a1aaaaaa" />
+		<link rel="stylesheet" href="themes/qjtx.css?v=new" />
 		<script type="text/javascript" src="themes/jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" src="themes/jquery.mobile-1.4.2.min.js"></script>
-		<script type="text/javascript" src="qjtx_zd.js?v=aaaaaa"></script>
+		<script type="text/javascript" src="qjtx_zd_redirect.js?v=new"></script>
 		<script type="text/javascript" src="dist/lrz.bundle.js"></script>
 		<script>
 			var tida=Tida.ready({
@@ -29,15 +29,16 @@
 			var mix_user_id='<s:property value="mixUserId"/>';
 			var trade_token='<s:property value="tradeToken"/>';
 			var instance_id='<s:property value="instance_id"/>';
+
 			var merchant_order_id="23759189";
 			var orderprice="0.01";
 			var ordertime;
 			var service_type;
-			var package_name;
+			var package_name='<s:property value="tcType"/>';
 			var monthly_fee;
 			var broadband_rat;
-			var package_price;
-			var contract_period;
+			var package_price='<s:property value="tcPrice"/>';
+			var contract_period='<s:property value="tcPeroid"/>';
 			var package_details;
 			var mobile;
 			var id_number;
@@ -76,67 +77,30 @@
 					<a id="showInfoDlg2" href="#" title="套餐详细" style="margin-left:.5em; font-size:15px;" >资费签约详情</a>
 					<hr style="height: 1px; background-color: #ccc; border: 0; margin: 0.5em;">
 				</div>
-				
- 				<div class="sys_item_spec"> 
-				        
-						<dl id="package" class="clearfix iteminfo_parameter sys_item_specpara">
-							<dt>套餐类型</dt>
-							<dd>
-								<ul class="sys_spec_text">
-									<li data-aid="4G签约赠话费"><a href="javascript:;" title="4G签约赠话费">4G签约赠话费</a><i></i></li>
-									<li data-aid="资费签约"><a href="javascript:;" title="资费签约">资费签约</a><i></i></li>
-								</ul>
-				
-							</dd>
-						</dl>
-						<dl id="fee1" class="clearfix iteminfo_parameter sys_item_specpara" style="display: none;">
-							<dt>资费标准</dt>
-							<dd>
-								<ul class="sys_spec_text">
-									<li data-aid="58元"><a href="javascript:;" title="58元">58元</a><i></i></li>
-									<li data-aid="88元"><a href="javascript:;" title="88元">88元</a><i></i></li>
-									<li data-aid="108元"><a href="javascript:;" title="108元">108元</a><i></i></li>
-									<li data-aid="128元"><a href="javascript:;" title="128元">128元</a><i></i></li>
-									<li data-aid="158元"><a href="javascript:;" title="158元">158元</a><i></i></li>
-									<li data-aid="188元"><a href="javascript:;" title="188元">188元</a><i></i></li>
-									<li data-aid="228元"><a href="javascript:;" title="228元">228元</a><i></i></li>
-									<li data-aid="288元"><a href="javascript:;" title="288元">288元</a><i></i></li>
-									<li data-aid="388元"><a href="javascript:;" title="388元">388元</a><i></i></li>
-								</ul>
-				
-							</dd>
-						</dl>
-						<dl id="fee2" class="clearfix iteminfo_parameter sys_item_specpara" style="display: none;">
-							<dt>资费标准</dt>
-							<dd>
-								<ul class="sys_spec_text">
-									<li data-aid="58元"><a href="javascript:;" title="58元">58元</a><i></i></li>
-									<li data-aid="88元"><a href="javascript:;" title="88元">88元</a><i></i></li>
-									<li data-aid="108元"><a href="javascript:;" title="108元">108元</a><i></i></li>
-									<li data-aid="138元"><a href="javascript:;" title="138元">138元</a><i></i></li>
-									<li data-aid="158元"><a href="javascript:;" title="158元">158元</a><i></i></li>
-								</ul>
-				
-							</dd>
-						</dl>
-						<dl id="contractperiod1" class="clearfix iteminfo_parameter sys_item_specpara" style="display: none;">
-							<dt>签约周期</dt>
-							<dd>
-								<ul class="sys_spec_text">
-									<li data-aid="18个月"><a href="javascript:;" title="18个月">18个月</a><i></i></li>
-								</ul>
-				
-							</dd>
-						</dl>
-						<dl id="contractperiod2" class="clearfix iteminfo_parameter sys_item_specpara"style="display: none;">
-							<dt>签约周期</dt>
-							<dd>
-								<ul class="sys_spec_text">
-									<li data-aid="12个月"><a href="javascript:;" title="12个月">12个月</a><i></i></li>
-								</ul>
-				
-							</dd>
-						</dl>
+				<!-- 按商品id自动分配套餐类型 -->
+				<div class="qj_whitediv">
+					<div class="qj_label">
+						<p>套餐类型</p>
+					</div>
+					<div class="qj_textfield">
+						<s:property value="tcType"/>
+					</div>
+				</div>
+				<div class="qj_whitediv">
+					<div class="qj_label">
+						<p>资费标准</p>
+					</div>
+					<div class="qj_textfield">
+						<s:property value="tcPrice"/>
+					</div>
+				</div>
+				<div class="qj_whitediv">
+					<div class="qj_label">
+						<p>签约周期</p>
+					</div>
+					<div class="qj_textfield">
+						<s:property value="tcPeroid"/>
+					</div>
 				</div>
 				<div class="qj_whitediv">
 					<div class="qj_label">

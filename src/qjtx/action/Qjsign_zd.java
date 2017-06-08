@@ -46,6 +46,12 @@ public class Qjsign_zd extends ActionSupport {
 			return "errorsign";
 		}
 //		response.setStatus(200);
+		if ("552751134497".equals(itemId)) {
+			tcType = "资费续约";
+			tcPrice = "88元";
+			tcPeroid = "12个月";
+			return "redirectSuccess";
+		}
 		return SUCCESS;
 
 	}
@@ -124,5 +130,33 @@ public class Qjsign_zd extends ActionSupport {
 	private String itemId;
 	private String tradeToken;
 	private String mixUserId;
+	
+	private String tcType;
+	private String tcPrice;
+	private String tcPeroid;
+
+	public String getTcType() {
+		return tcType;
+	}
+
+	public void setTcType(String tcType) {
+		this.tcType = tcType;
+	}
+
+	public String getTcPrice() {
+		return tcPrice;
+	}
+
+	public void setTcPrice(String tcPrice) {
+		this.tcPrice = tcPrice;
+	}
+
+	public String getTcPeroid() {
+		return tcPeroid;
+	}
+
+	public void setTcPeroid(String tcPeroid) {
+		this.tcPeroid = tcPeroid;
+	}
 
 }

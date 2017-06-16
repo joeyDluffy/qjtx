@@ -150,6 +150,7 @@ public class QjcommitOrder extends ActionSupport {
 			qjorder.setInstallation_address(qjorderdata.getInstallation_address());
 			qjorder.setOperatestatus("");
 			qjorder.setTel(qjorderdata.getTel());
+			qjorder.setItem_id(qjorderdata.getItem_id());
 			qjorder.setOrderprice(Double.valueOf(qjorderdata.getOrderprice()));
 			qjorder.setMonthly_fee(Double.valueOf(qjorderdata.getMonthly_fee()));
 			qjorder.setPackage_price(Double.valueOf(qjorderdata.getPackage_price()));

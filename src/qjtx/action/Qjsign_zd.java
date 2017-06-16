@@ -46,12 +46,58 @@ public class Qjsign_zd extends ActionSupport {
 			return "errorsign";
 		}
 //		response.setStatus(200);
-		if ("552751134497".equals(itemId)) {
-			tcType = "资费续约";
+		if ("553190791473".equals(itemId)) {
+			tcType = "资费签约";
+			tcPrice = "58元";
+			tcPeroid = "12个月";
+			return "redirectSuccess";
+		} else if ("553046900688".equals(itemId)) {
+			tcType = "资费签约";
 			tcPrice = "88元";
 			tcPeroid = "12个月";
 			return "redirectSuccess";
+		} else if ("553047204536".equals(itemId)) {
+			tcType = "资费签约";
+			tcPrice = "108元";
+			tcPeroid = "12个月";
+			return "redirectSuccess";
+		} else if ("553193263462".equals(itemId)) {
+			tcType = "资费签约";
+			tcPrice = "138元";
+			tcPeroid = "12个月";
+			return "redirectSuccess";
+		} else if ("553048056036".equals(itemId)) {
+			tcType = "资费签约";
+			tcPrice = "158元";
+			tcPeroid = "12个月";
+			return "redirectSuccess";
+		} else if ("553115601096".equals(itemId)) {
+			tcType = "4G签约赠话费";
+			tcPrice = "58元";
+			tcPeroid = "18个月";
+			return "redirectSuccess";
+		} else if ("553193767320".equals(itemId)) {
+			tcType = "4G签约赠话费";
+			tcPrice = "88元";
+			tcPeroid = "18个月";
+			return "redirectSuccess";
+		} else if ("553115589645".equals(itemId)) {
+			tcType = "4G签约赠话费";
+			tcPrice = "108元";
+			tcPeroid = "18个月";
+			return "redirectSuccess";
+		} else if ("553115665584".equals(itemId)) {
+			tcType = "4G签约赠话费";
+			tcPrice = "128元";
+			tcPeroid = "18个月";
+			return "redirectSuccess";
+		} else if ("553193815861".equals(itemId)) {
+			tcType = "4G签约赠话费";
+			tcPrice = "158元";
+			tcPeroid = "18个月";
+			return "redirectSuccess";
 		}
+		
 		return SUCCESS;
 
 	}

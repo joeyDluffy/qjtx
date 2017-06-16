@@ -49,10 +49,21 @@ $(document).ready(function(){
 			"click", function() {
 				showInfoDlg("img/zfqy.png");
 			});	
-	$("#showXYDlg").bind(
-			"click", function() {
-				showInfoDlg("img/zfxy_001.png");
-			});	
+	if (package_name=='4G签约赠话费') {
+		service_type="contractPhone";
+		$("#showInfoDlg2").css('display','none');
+		$("#showXYDlg").bind(
+				"click", function() {
+					showInfoDlg("img/hyxy_001.png");
+				});	
+	} else if (package_name=='资费签约') {
+		service_type="depositFee";
+		$("#showInfoDlg").css('display','none');
+		$("#showXYDlg").bind(
+				"click", function() {
+					showInfoDlg("img/zfxy_001.png");
+				});	
+	}
 	//提交
 	$("#ordersubmit").bind(
 		"click", function() {

@@ -13,7 +13,7 @@
 
 		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.2.css?v=1" />
-		<link rel="stylesheet" href="themes/qjtx.css?v=a1a1aaaaaa" />
+		<link rel="stylesheet" href="themes/qjtx.css?v=0609" />
 		<script type="text/javascript" src="themes/jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" src="themes/jquery.mobile-1.4.2.min.js"></script>
 		<script type="text/javascript" src="qjtx_zd.js?v=aaaaaa"></script>
@@ -225,7 +225,7 @@
 		<div data-role="dialog" id="info_dialog" class="qj_infodialog">
 			<div data-role="header">
 				<h1 style="height:20px; font-size:16px;" id="infodialog">
-					弹出信息
+					提示信息
 				</h1>	
 			</div>
 			<div data-role="content">

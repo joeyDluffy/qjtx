@@ -461,12 +461,20 @@ button[disabled],
 	float: right;
     width: 70%;
 }
-
+.qj_directSelect{
+	height:45px;
+	float: right;
+    width: 70%;
+	font-size: 16px;
+	color: #FF0000;
+    text-align: left;
+    line-height:45px;  
+}
 .qj_checkboxdiv {
 	width: 100%;
 }
 .qj_checkbox {
-    width:3%;
+    width:5%;
     float:left;
     margin-left:5px;
     height:35px;
@@ -476,7 +484,7 @@ button[disabled],
 	height:35px;
 	float: right;
 	margin-left=-30px;
-    width: 96%;
+    width: 93%;
 }
 .qj_textfield input{
 	height:45px;

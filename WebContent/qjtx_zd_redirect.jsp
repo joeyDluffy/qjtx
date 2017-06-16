@@ -13,10 +13,10 @@
 
 		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.2.css?v=1" />
-		<link rel="stylesheet" href="themes/qjtx.css?v=new" />
+		<link rel="stylesheet" href="themes/qjtx.css?v=06091" />
 		<script type="text/javascript" src="themes/jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" src="themes/jquery.mobile-1.4.2.min.js"></script>
-		<script type="text/javascript" src="qjtx_zd_redirect.js?v=new"></script>
+		<script type="text/javascript" src="qjtx_zd_redirect.js?v=0609"></script>
 		<script type="text/javascript" src="dist/lrz.bundle.js"></script>
 		<script>
 			var tida=Tida.ready({
@@ -82,7 +82,7 @@
 					<div class="qj_label">
 						<p>套餐类型</p>
 					</div>
-					<div class="qj_textfield">
+					<div class="qj_directSelect">
 						<s:property value="tcType"/>
 					</div>
 				</div>
@@ -90,7 +90,7 @@
 					<div class="qj_label">
 						<p>资费标准</p>
 					</div>
-					<div class="qj_textfield">
+					<div class="qj_directSelect">
 						<s:property value="tcPrice"/>
 					</div>
 				</div>
@@ -98,7 +98,7 @@
 					<div class="qj_label">
 						<p>签约周期</p>
 					</div>
-					<div class="qj_textfield">
+					<div class="qj_directSelect">
 						<s:property value="tcPeroid"/>
 					</div>
 				</div>
@@ -189,7 +189,7 @@
 		<div data-role="dialog" id="info_dialog" class="qj_infodialog">
 			<div data-role="header">
 				<h1 style="height:20px; font-size:16px;" id="infodialog">
-					弹出信息
+					提示信息
 				</h1>	
 			</div>
 			<div data-role="content">

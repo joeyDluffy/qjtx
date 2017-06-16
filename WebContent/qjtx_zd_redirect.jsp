@@ -35,7 +35,7 @@
 			var ordertime;
 			var service_type;
 			var package_name='<s:property value="tcType"/>';
-			var monthly_fee;
+			var monthly_fee='<s:property value="tcPrice"/>';
 			var broadband_rat;
 			var package_price='<s:property value="tcPrice"/>';
 			var contract_period='<s:property value="tcPeroid"/>';

@@ -38,6 +38,7 @@ function refreshTable() {
 		{title:"联系电话", field:"tel", sorter:"string",width:"100px"},
 		{title:"选择套餐内容", field:"package_details", sorter:"string"},
 		{title:"身份证号", field:"id_number", sorter:"string",width:"170px"},
+		{title:"商品ID", field:"item_id", sorter:"string",width:"100px"},
 		{title:"淘宝订单号", field:"tb_orderid", sorter:"string", editable: true, formatter:function(value, data, cell, row, options){
 			if(numCheck(value)){
 				return value;

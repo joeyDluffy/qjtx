@@ -23,27 +23,23 @@ $(document).ready(function(){
 					{
 						service_type="contractPhone";
 						$("#fee1").css('display','');
-						$("#contractperiod1").css('display','');
+//						$("#contractperiod1").css('display','');
 						$("#fee2").css('display','none');
-						$("#contractperiod2").css('display','none');
+//						$("#contractperiod2").css('display','none');
 						package_name=$(this).attr("data-aid");
-						$("#showXYDlg").bind(
-								"click", function() {
-									showInfoDlg("img/hyxy_001.png");
-								});	
+						XYurl="img/hyxy_001.png";
+						$("#qyzqtxt").html("18个月");
 					}
-					else if ($(this).attr("data-aid") == "资费签约") 
+					else if ($(this).attr("data-aid") == "移动飞享套餐") 
 					{
 						service_type="depositFee";
 						$("#fee1").css('display','none');
-						$("#contractperiod1").css('display','none');
+//						$("#contractperiod1").css('display','none');
 						$("#fee2").css('display','');
-						$("#contractperiod2").css('display','');
+//						$("#contractperiod2").css('display','');
 						package_name=$(this).attr("data-aid");
-						("#showXYDlg").bind(
-								"click", function() {
-									showInfoDlg("img/zfxy_001.png");
-								});	
+						XYurl="img/zfxy_001.png";
+						$("#qyzqtxt").html("12个月");
 					}
 				}
 			})
@@ -164,7 +160,7 @@ $(document).ready(function(){
 			});	
 	$("#showXYDlg").bind(
 			"click", function() {
-				showInfoDlg("img/zfxy_001.png");
+				showXYInfoDlg();
 			});	
 	//提交
 	$("#ordersubmit").bind(
@@ -250,18 +246,18 @@ $(document).ready(function(){
 				mobile=$("#mobile").val();
 			}
 			//联系人手机验证
-			if (!IsTel($("#tel").val())) 
-			{	
-				showInputErrorDlg("非手机号码!");
-				$("#tel").focus();
-//				alert("非手机号码！"); 
-				$("#tel").val("");
-				return;
-			}
-			else
-			{
-				tel=$("#tel").val();
-			}
+//			if (!IsTel($("#tel").val())) 
+//			{	
+//				showInputErrorDlg("非手机号码!");
+//				$("#tel").focus();
+////				alert("非手机号码！"); 
+//				$("#tel").val("");
+//				return;
+//			}
+//			else
+//			{
+//				tel=$("#tel").val();
+//			}
 			//身份证号合理验证
 			if (!IdentityCodeValid($("#id_number").val())) 
 			{	
@@ -293,7 +289,7 @@ $(document).ready(function(){
 			showLoader();
 			
 //			alert("bingo");
-			var jsondata = {"qjorderdata":{"tel":tel,"imageList":pdatalist,"item_id":item_id,"merchant_order_id":merchant_order_id,"orderprice":orderprice,"mix_user_id":mix_user_id,"ordertime":ordertime,"service_type":service_type,"package_name":package_name,"monthly_fee":monthly_fee,"broadband_rat":broadband_rat,"package_price":package_price,"contract_period":contract_period,"package_details":package_details,"mobile":mobile,"id_number":id_number,"cname":cname,"installation_address":installation_address,"instance_id":instance_id}};
+			var jsondata = {"qjorderdata":{"tel":"","imageList":pdatalist,"item_id":item_id,"merchant_order_id":merchant_order_id,"orderprice":orderprice,"mix_user_id":mix_user_id,"ordertime":ordertime,"service_type":service_type,"package_name":package_name,"monthly_fee":monthly_fee,"broadband_rat":broadband_rat,"package_price":package_price,"contract_period":contract_period,"package_details":package_details,"mobile":mobile,"id_number":id_number,"cname":cname,"installation_address":installation_address,"instance_id":instance_id}};
 			$.ajax
 		    (
 		        {
@@ -487,7 +483,10 @@ function showInfoDlg(imgsrc) {
 	$("#infoimg").attr('src',imgsrc); 
 	$.mobile.changePage( "#info_dialog", { role: "dialog" } );
 	}
-
+function showXYInfoDlg() {
+	$("#infoimg").attr('src',XYurl); 
+	$.mobile.changePage( "#info_dialog", { role: "dialog" } );
+	}
 function showLoader() {  
     //显示加载器.for jQuery Mobile 1.2.0  
     $.mobile.loading('show', {  

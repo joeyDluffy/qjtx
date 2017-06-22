@@ -13,10 +13,10 @@
 
 		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.2.css?v=1" />
-		<link rel="stylesheet" href="themes/qjtx.css?v=0609" />
+		<link rel="stylesheet" href="themes/qjtx.css?v=0622s" />
 		<script type="text/javascript" src="themes/jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" src="themes/jquery.mobile-1.4.2.min.js"></script>
-		<script type="text/javascript" src="qjtx_zd.js?v=aaaaaa"></script>
+		<script type="text/javascript" src="qjtx_zd.js?v=0622ss"></script>
 		<script type="text/javascript" src="dist/lrz.bundle.js"></script>
 		<script>
 			var tida=Tida.ready({
@@ -43,8 +43,7 @@
 			var id_number;
 			var cname;
 			var installation_address;
-			var tel;
-			
+			var XYurl;
 			//function GetQueryString(name) {
 			//	   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
 			//	   var r = window.location.search.substr(1).match(reg);
@@ -71,20 +70,20 @@
 			</div>
 			-->
 			<div role="main" class="qj_content">
-				<div style="margin-top:.8em;">
+				<div style="margin-top:.8em; margin-bottom:1.5em;">
 					<a id="showInfoDlg" href="#" title="套餐详细" style="margin-left:.5em; font-size:15px;" >4G签约赠话费详情</a>
-					<a id="showInfoDlg2" href="#" title="套餐详细" style="margin-left:.5em; font-size:15px;" >资费签约详情</a>
-					<hr style="height: 1px; background-color: #ccc; border: 0; margin: 0.5em;">
+					<a id="showInfoDlg2" href="#" title="套餐详细" style="margin-left:.5em; font-size:15px;" >移动飞享套餐详情</a>
+					<!--  <hr style="height: 1px; background-color: #ccc; border: 0; margin: 0.5em;">-->
 				</div>
 				
- 				<div class="sys_item_spec"> 
+ 				<div class="sys_item_spec" style="width: 100%; border-top: 1px solid #ddd; float: left;"> 
 				        
 						<dl id="package" class="clearfix iteminfo_parameter sys_item_specpara">
 							<dt>套餐类型</dt>
 							<dd>
 								<ul class="sys_spec_text">
 									<li data-aid="4G签约赠话费"><a href="javascript:;" title="4G签约赠话费">4G签约赠话费</a><i></i></li>
-									<li data-aid="资费签约"><a href="javascript:;" title="资费签约">资费签约</a><i></i></li>
+									<li data-aid="移动飞享套餐"><a href="javascript:;" title="移动飞享套餐">移动飞享套餐</a><i></i></li>
 								</ul>
 				
 							</dd>
@@ -119,24 +118,7 @@
 				
 							</dd>
 						</dl>
-						<dl id="contractperiod1" class="clearfix iteminfo_parameter sys_item_specpara" style="display: none;">
-							<dt>签约周期</dt>
-							<dd>
-								<ul class="sys_spec_text">
-									<li data-aid="18个月"><a href="javascript:;" title="18个月">18个月</a><i></i></li>
-								</ul>
-				
-							</dd>
-						</dl>
-						<dl id="contractperiod2" class="clearfix iteminfo_parameter sys_item_specpara"style="display: none;">
-							<dt>签约周期</dt>
-							<dd>
-								<ul class="sys_spec_text">
-									<li data-aid="12个月"><a href="javascript:;" title="12个月">12个月</a><i></i></li>
-								</ul>
-				
-							</dd>
-						</dl>
+						
 				</div>
 				<div class="qj_whitediv">
 					<div class="qj_label">
@@ -154,14 +136,14 @@
 						<input type="number" id="mobile"></input>
 					</div>
 				</div>
-				<div class="qj_whitediv">
+				<!--  <div class="qj_whitediv">
 					<div class="qj_label">
 						<p>联系电话</p>
 					</div>
 					<div class="qj_textfield">
 						<input type="number" id="tel" placeholder="客服人员联系用--9:00~18:00"></input>
 					</div>
-				</div>
+				</div>-->
 				<div class="qj_whitediv">
 					<div class="qj_label">
 						<p>身份证号</p>
@@ -171,12 +153,12 @@
 					</div>
 					
 				</div>
-				<div class="saleImg" style="height:60px; padding-top:30px;">
+				<div class="saleImg" style="height:60px; padding-top:15px;">
 			        <p style="margin-left:.5em">
 							身份证扫描/拍摄文件
 					</p>
 					<p style="font-size:15px; color:#999999; margins-bottom:0px">
-							(正反面、可传多个文件)
+							(请上传清晰无遮挡的正反面照片、可传多个文件)
 					</p>
 				</div>
 				<div class="saleImg qj_file">
@@ -186,13 +168,21 @@
 						<span class="right-text" id="rightText"></span>
 					</span>
 				</div>
-				<div class="saleImg" >
+				<div class="saleImgDown" >
 			        <p style="font-size:15px; margin-left:1em">
 							上传预览：<a id="clear" href="#" class="">清除文件</a>
 					</p>
 					
 				</div>
 				<div class="saleImg" id ="imageshow">
+				</div>
+				<div class="qj_whitedowndiv">
+					<div class="qj_label">
+						<p>签约周期</p>
+					</div>
+					<div class="qj_directSelect" id="qyzqtxt">
+						<s:property value="tcPeroid"/>
+					</div>
 				</div>
 				<div class="qj_checkboxdiv">
 					<div class="qj_checkbox" style="margin-top:.9em; margin-right:0em;" >
@@ -203,7 +193,7 @@
 					</div>
 				</div>
 				
-				<div class="saleImg">
+				<div class="saleImgDown">
 					<a id="ordersubmit" style="font-weight:normal;" href="#"
 						class="qj_button ui-btn-corner-all ui-btn ui-shadow">确认下单</a>
 				</div>

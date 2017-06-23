@@ -34,9 +34,9 @@
 			var ordertime;
 			var service_type;
 			var package_name='<s:property value="tcType"/>';
-			var monthly_fee='<s:property value="tcPrice"/>';
+			var monthly_fee;
 			var broadband_rat;
-			var package_price='<s:property value="tcPrice"/>';
+			var package_price;
 			var contract_period='<s:property value="tcPeroid"/>';
 			var package_details;
 			var mobile;

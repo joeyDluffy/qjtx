@@ -96,7 +96,7 @@
 									<li data-aid="188元"><a href="javascript:;" title="188元">188元</a><i></i></li>
 									<li data-aid="228元"><a href="javascript:;" title="228元">228元</a><i></i></li>
 									<li data-aid="288元"><a href="javascript:;" title="288元">288元</a><i></i></li>
-									<li data-aid="388元"><a href="javascript:;" title="388元">388元</a><i></i></li>
+									
 								</ul>
 				
 							</dd>

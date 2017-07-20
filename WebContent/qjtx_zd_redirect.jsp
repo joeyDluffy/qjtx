@@ -117,7 +117,7 @@
 							身份证扫描/拍摄文件:
 					</p>
 					<p style="font-size:15px; color:#999999; margins-bottom:0px">
-							(请上传清晰无遮挡的正反面照片、可传多个文件)
+							(请上传办理号主清晰无遮挡的正反面照片，可传多个文件)
 					</p>
 				</div>
 				<div class="saleImg qj_file">

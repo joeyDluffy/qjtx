@@ -16,7 +16,7 @@
 		<link rel="stylesheet" href="themes/qjtx.css?v=0622s" />
 		<script type="text/javascript" src="themes/jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" src="themes/jquery.mobile-1.4.2.min.js"></script>
-		<script type="text/javascript" src="qjtx_zd_redirectZFHY.js?v=0622s"></script>
+		<script type="text/javascript" src="qjtx_zd_redirectZFHY.js?v=0623"></script>
 		<script type="text/javascript" src="dist/lrz.bundle.js"></script>
 		<script>
 			var tida=Tida.ready({
@@ -96,7 +96,6 @@
 									<li data-aid="188元"><a href="javascript:;" title="188元">188元</a><i></i></li>
 									<li data-aid="228元"><a href="javascript:;" title="228元">228元</a><i></i></li>
 									<li data-aid="288元"><a href="javascript:;" title="288元">288元</a><i></i></li>
-									
 								</ul>
 				
 							</dd>

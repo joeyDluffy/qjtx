@@ -41,24 +41,24 @@ $(document).ready(function(){
 				document.querySelector('#imageshow img').remove();
 				$("#saleImg1").attr('value','');
 			});
-	$("#showInfoDlg").bind(
-			"click", function() {
-				showInfoDlg("img/4gqy.png");
-			});	
-	$("#showInfoDlg2").bind(
-			"click", function() {
-				showInfoDlg("img/zfqy.png");
-			});	
+//	$("#showInfoDlg").bind(
+//			"click", function() {
+//				showInfoDlg("img/4gqy.png");
+//			});	
+//	$("#showInfoDlg2").bind(
+//			"click", function() {
+//				showInfoDlg("img/zfqy.png");
+//			});	
 	if (package_name=='4G签约赠话费') {
 		service_type="contractPhone";
-		$("#showInfoDlg2").css('display','none');
+//		$("#showInfoDlg2").css('display','none');
 		$("#showXYDlg").bind(
 				"click", function() {
 					showInfoDlg("img/hyxy_001.png");
 				});	
 	} else if (package_name=='移动飞享套餐') {
 		service_type="depositFee";
-		$("#showInfoDlg").css('display','none');
+//		$("#showInfoDlg").css('display','none');
 		$("#showXYDlg").bind(
 				"click", function() {
 					showInfoDlg("img/zfxy_001.png");
@@ -159,7 +159,7 @@ $(document).ready(function(){
 		    	showInputErrorDlg("请勾选确认用户协议");
 		    	return;
 		    }
-		    package_details="协议内容: "+package_name+" "+monthly_fee+" "+broadband_rat+" "+contract_period;
+		    package_details="协议内容: "+package_name+" "+monthly_fee+" "+monthly_fee2+" "+monthly_fee3+" "+broadband_rat+" "+contract_period;
 			showLoader();
 			
 //			alert("bingo");

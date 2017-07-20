@@ -132,7 +132,7 @@ $(document).ready(function(){
 			} 
 
 			//资费选择值
-			if (monthly_fee == null || monthly_fee == "")  
+			if (monthly_fee == null || monthly_fee == "") 
 			{	
 				showInputErrorDlg("请选择套餐档");
 //				alert(); 

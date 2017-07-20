@@ -2,48 +2,48 @@ $(document).ready(function(){
 
 
 	$(function(){  
-		$("#package").each(function(){
-			var i=$(this);
-			var p=i.find("ul>li");
-			p.click(function(){
-				$("#fee1").find("ul>li").siblings("li").removeClass("selected");
-				$("#fee2").find("ul>li").siblings("li").removeClass("selected");
-				$("#contractperiod1").find("ul>li").removeClass("selected");
-				$("#contractperiod2").find("ul>li").removeClass("selected");
-				monthly_fee="";
-				contract_period="";
-				if(!!$(this).hasClass("selected")){
-					$(this).removeClass("selected");
-					//i.removeAttr("data-attrval");
-					service_type="";
-				}else{
-					$(this).addClass("selected").siblings("li").removeClass("selected");
-					//i.attr("data-attrval",$(this).attr("data-aid"))
-					if ($(this).attr("data-aid") == "4G签约赠话费") 
-					{
-						service_type="contractPhone";
-						$("#fee1").css('display','');
-//						$("#contractperiod1").css('display','');
-						$("#fee2").css('display','none');
-//						$("#contractperiod2").css('display','none');
-						package_name=$(this).attr("data-aid");
-						XYurl="img/hyxy_001.png";
-						$("#qyzqtxt").html("18个月");
-					}
-					else if ($(this).attr("data-aid") == "移动飞享套餐") 
-					{
-						service_type="depositFee";
-						$("#fee1").css('display','none');
-//						$("#contractperiod1").css('display','none');
-						$("#fee2").css('display','');
-//						$("#contractperiod2").css('display','');
-						package_name=$(this).attr("data-aid");
-						XYurl="img/zfxy_001.png";
-						$("#qyzqtxt").html("12个月");
-					}
-				}
-			})
-		});
+//		$("#package").each(function(){
+//			var i=$(this);
+//			var p=i.find("ul>li");
+//			p.click(function(){
+//				$("#fee1").find("ul>li").siblings("li").removeClass("selected");
+//				$("#fee2").find("ul>li").siblings("li").removeClass("selected");
+//				$("#contractperiod1").find("ul>li").removeClass("selected");
+//				$("#contractperiod2").find("ul>li").removeClass("selected");
+//				monthly_fee="";
+//				contract_period="";
+//				if(!!$(this).hasClass("selected")){
+//					$(this).removeClass("selected");
+//					//i.removeAttr("data-attrval");
+//					service_type="";
+//				}else{
+//					$(this).addClass("selected").siblings("li").removeClass("selected");
+//					//i.attr("data-attrval",$(this).attr("data-aid"))
+//					if ($(this).attr("data-aid") == "4G签约赠话费") 
+//					{
+//						service_type="contractPhone";
+//						$("#fee1").css('display','');
+////						$("#contractperiod1").css('display','');
+//						$("#fee2").css('display','none');
+////						$("#contractperiod2").css('display','none');
+//						package_name=$(this).attr("data-aid");
+//						XYurl="img/hyxy_001.png";
+//						$("#qyzqtxt").html("18个月");
+//					}
+//					else if ($(this).attr("data-aid") == "移动飞享套餐") 
+//					{
+//						service_type="depositFee";
+//						$("#fee1").css('display','none');
+////						$("#contractperiod1").css('display','none');
+//						$("#fee2").css('display','');
+////						$("#contractperiod2").css('display','');
+//						package_name=$(this).attr("data-aid");
+//						XYurl="img/zfxy_001.png";
+//						$("#qyzqtxt").html("12个月");
+//					}
+//				}
+//			})
+//		});
 		$("#fee1").each(function(){
 			var i=$(this);
 			var p=i.find("ul>li");
@@ -52,11 +52,53 @@ $(document).ready(function(){
 					$(this).removeClass("selected");
 					//i.removeAttr("data-attrval");
 					monthly_fee="";
+					monthly_fee2="";
+					monthly_fee3="";
 				}else{
 					$(this).addClass("selected").siblings("li").removeClass("selected");
 					//i.attr("data-attrval",$(this).attr("data-aid"))
 					monthly_fee=$(this).attr("data-aid");
-					
+					if (monthly_fee=="58元") {
+						monthly_fee2="58元送417元";
+						$("#tcPrice2").html("58元送417元");
+						monthly_fee3="23元（最后一月26元）";
+						$("#tcPrice3").html("23元（最后一月26元）");
+					} else if (monthly_fee=="88元") {
+						monthly_fee2="88元送633元";
+						$("#tcPrice2").html("88元送633元");
+						monthly_fee3="35元（最后一月38元）";
+						$("#tcPrice3").html("35元（最后一月38元）");
+					} else if (monthly_fee=="108元") {
+						monthly_fee2="108元送777元";
+						$("#tcPrice2").html("108元送777元");
+						monthly_fee3="43元（最后一月46元）";
+						$("#tcPrice3").html("43元（最后一月46元）");
+					} else if (monthly_fee=="128元") {
+						monthly_fee2="128元送921元";
+						$("#tcPrice2").html("128元送921元");
+						monthly_fee3="51元（最后一月54元）";
+						$("#tcPrice3").html("51元（最后一月54元）");
+					} else if (monthly_fee=="158元") {
+						monthly_fee2="158元送1137元";
+						$("#tcPrice2").html("158元送1137元");
+						monthly_fee3="63元（最后一月66元）";
+						$("#tcPrice3").html("63元（最后一月66元）");
+					} else if (monthly_fee=="188元") {
+						monthly_fee2="188元送1353元";
+						$("#tcPrice2").html("188元送1353元");
+						monthly_fee3="75元（最后一月78元）";
+						$("#tcPrice3").html("75元（最后一月78元）");
+					} else if (monthly_fee=="228元") {
+						monthly_fee2="228元送1641元";
+						$("#tcPrice2").html("228元送1641元");
+						monthly_fee3="91元（最后一月94元）";
+						$("#tcPrice3").html("91元（最后一月94元）");
+					} else if (monthly_fee=="288元") {
+						monthly_fee2="288元送2073元";
+						$("#tcPrice2").html("288元送2073元");
+						monthly_fee3="115元（最后一月118元）";
+						$("#tcPrice3").html("115元（最后一月118元）");
+					}
 				}
 			})
 		});
@@ -68,49 +110,92 @@ $(document).ready(function(){
 					$(this).removeClass("selected");
 					//i.removeAttr("data-attrval");
 					monthly_fee="";
+					monthly_fee2="";
+					monthly_fee3="";
 				}else{
 					$(this).addClass("selected").siblings("li").removeClass("selected");
 					//i.attr("data-attrval",$(this).attr("data-aid"))
 					monthly_fee=$(this).attr("data-aid");
-					
+					if (monthly_fee=="58元") {
+						monthly_fee2="58元送105元";
+						$("#tcPrice2").html("58元送105元");
+						monthly_fee3="23元（最后一月26元）";
+						$("#tcPrice3").html("23元（最后一月26元）");
+					} else if (monthly_fee=="88元") {
+						monthly_fee2="88元送160元";
+						$("#tcPrice2").html("88元送160元");
+						monthly_fee3="13元（最后一月17元）";
+						$("#tcPrice3").html("13元（最后一月17元）");
+					} else if (monthly_fee=="108元") {
+						monthly_fee2="108元送195元";
+						$("#tcPrice2").html("108元送195元");
+						monthly_fee3="16元（最后一月19元）";
+						$("#tcPrice3").html("16元（最后一月19元）");
+					} else if (monthly_fee=="138元") {
+						monthly_fee2="138元送250元";
+						$("#tcPrice2").html("138元送250元");
+						monthly_fee3="20元（最后一月30元）";
+						$("#tcPrice3").html("20元（最后一月30元）");
+					} else if (monthly_fee=="158元") {
+						monthly_fee2="158元送285元";
+						$("#tcPrice2").html("158元送285元");
+						monthly_fee3="23元（最后一月32元）";
+						$("#tcPrice3").html("23元（最后一月32元）");
+					}	
 				}
 			})
 		});
-		$("#contractperiod1").each(function(){
-			var i=$(this);
-			var p=i.find("ul>li");
-			p.click(function(){
-				if(!!$(this).hasClass("selected")){
-					$(this).removeClass("selected");
-					//i.removeAttr("data-attrval");
-					contract_period="";
-				}else{
-					$(this).addClass("selected").siblings("li").removeClass("selected");
-					//i.attr("data-attrval",$(this).attr("data-aid"))
-					contract_period=$(this).attr("data-aid");
-				}
-			})
-		});
-		$("#contractperiod2").each(function(){
-			var i=$(this);
-			var p=i.find("ul>li");
-			p.click(function(){
-				if(!!$(this).hasClass("selected")){
-					$(this).removeClass("selected");
-					//i.removeAttr("data-attrval");
-					contract_period="";
-				}else{
-					$(this).addClass("selected").siblings("li").removeClass("selected");
-					//i.attr("data-attrval",$(this).attr("data-aid"))
-					contract_period=$(this).attr("data-aid");
-				}
-			})
-		});
+//		$("#contractperiod1").each(function(){
+//			var i=$(this);
+//			var p=i.find("ul>li");
+//			p.click(function(){
+//				if(!!$(this).hasClass("selected")){
+//					$(this).removeClass("selected");
+//					//i.removeAttr("data-attrval");
+//					contract_period="";
+//				}else{
+//					$(this).addClass("selected").siblings("li").removeClass("selected");
+//					//i.attr("data-attrval",$(this).attr("data-aid"))
+//					contract_period=$(this).attr("data-aid");
+//				}
+//			})
+//		});
+//		$("#contractperiod2").each(function(){
+//			var i=$(this);
+//			var p=i.find("ul>li");
+//			p.click(function(){
+//				if(!!$(this).hasClass("selected")){
+//					$(this).removeClass("selected");
+//					//i.removeAttr("data-attrval");
+//					contract_period="";
+//				}else{
+//					$(this).addClass("selected").siblings("li").removeClass("selected");
+//					//i.attr("data-attrval",$(this).attr("data-aid"))
+//					contract_period=$(this).attr("data-aid");
+//				}
+//			})
+//		});
                          
     });  
 
 	pdatalist = new Array();
- 
+	$("#fee1").css('display','');
+	if (package_name=='4G签约赠话费') {
+		$("#fee1").css('display','');
+		service_type="contractPhone";
+//		$("#showInfoDlg2").css('display','none');
+		XYurl="img/hyxy_001.png";
+		$("#qyzqtxt").html("18个月");
+		contract_period="18个月";
+	} else if (package_name=='移动飞享套餐') {
+		$("#fee2").css('display','');
+		service_type="depositFee";
+//		$("#showInfoDlg").css('display','none');
+		XYurl="img/zfxy_001.png";
+		$("#qyzqtxt").html("12个月");
+		contract_period="12个月";
+	}
+	
 	document.querySelector('#saleImg1').addEventListener('change', function () {
 	    // this.files[0] 是用户选择的文件
 		showLoader();
@@ -150,14 +235,14 @@ $(document).ready(function(){
 				document.querySelector('#imageshow img').remove();
 				$("#saleImg1").attr('value','');
 			});
-	$("#showInfoDlg").bind(
-			"click", function() {
-				showInfoDlg("img/4gqy.png");
-			});	
-	$("#showInfoDlg2").bind(
-			"click", function() {
-				showInfoDlg("img/zfqy.png");
-			});	
+//	$("#showInfoDlg").bind(
+//			"click", function() {
+//				showInfoDlg("img/4gqy.png");
+//			});	
+//	$("#showInfoDlg2").bind(
+//			"click", function() {
+//				showInfoDlg("img/zfqy.png");
+//			});	
 	$("#showXYDlg").bind(
 			"click", function() {
 				showXYInfoDlg();
@@ -285,7 +370,7 @@ $(document).ready(function(){
 		    	showInputErrorDlg("请勾选确认用户协议");
 		    	return;
 		    }
-		    package_details="协议内容: "+package_name+" "+monthly_fee+" "+broadband_rat+" "+contract_period;
+		    package_details="协议内容: "+package_name+" "+monthly_fee+" "+monthly_fee2+" "+monthly_fee3+" "+broadband_rat+" "+contract_period;
 			showLoader();
 			
 //			alert("bingo");

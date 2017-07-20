@@ -110,7 +110,15 @@ public class Qjsign_zd extends ActionSupport {
 			return SUCCESS;
 		} else {
 			tcType = type.getTctype();
-			tcPrice = type.getTcprice();
+			String[] price =type.getTcprice().split(";");
+			try {
+				tcPrice = price[0];
+				tcPrice2 = price[1];
+				tcPrice3 = price[2];
+			} catch(Exception e){
+				
+			}
+			
 			tcPeroid = type.getTcperiod();
 			return type.getResultstring();
 		}
@@ -195,6 +203,26 @@ public class Qjsign_zd extends ActionSupport {
 	private String tcType;
 	private String tcPrice;
 	private String tcPeroid;
+	private String tcPrice2;
+	private String tcPrice3;
+	
+	public String getTcPrice2() {
+		return tcPrice2;
+	}
+
+	public void setTcPrice2(String tcPrice2) {
+		this.tcPrice2 = tcPrice2;
+	}
+
+	public String getTcPrice3() {
+		return tcPrice3;
+	}
+
+	public void setTcPrice3(String tcPrice3) {
+		this.tcPrice3 = tcPrice3;
+	}
+
+
 
 	public String getTcType() {
 		return tcType;

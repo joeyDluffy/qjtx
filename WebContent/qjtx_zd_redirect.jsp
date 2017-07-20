@@ -36,6 +36,8 @@
 			var service_type;
 			var package_name='<s:property value="tcType"/>';
 			var monthly_fee='<s:property value="tcPrice"/>';
+			var monthly_fee2='<s:property value="tcPrice2"/>';
+			var monthly_fee3='<s:property value="tcPrice3"/>';
 			var broadband_rat;
 			var package_price='<s:property value="tcPrice"/>';
 			var contract_period='<s:property value="tcPeroid"/>';
@@ -72,44 +74,27 @@
 			-->
 			<div role="main" class="qj_content">
 				<div style="margin-top:.8em; margin-bottom:1.5em;">
-					<a id="showInfoDlg" href="#" title="套餐详细" style="margin-left:.5em; font-size:15px;" >4G签约赠话费详情</a>
-					<a id="showInfoDlg2" href="#" title="套餐详细" style="margin-left:.5em; font-size:15px;" >移动飞享套餐详情</a>
+					<!--<a id="showInfoDlg" href="#" title="套餐详细" style="margin-left:.5em; font-size:15px;" >4G签约赠话费详情</a>
+					<a id="showInfoDlg2" href="#" title="套餐详细" style="margin-left:.5em; font-size:15px;" >移动飞享套餐详情</a>-->
 					<!--  <hr style="height: 1px; background-color: #ccc; border: 0; margin: 0.5em;">-->
 				</div>
-				<!-- 按商品id自动分配套餐类型 -->
 				<div class="qj_whitediv">
 					<div class="qj_label">
-						<p>套餐类型</p>
-					</div>
-					<div class="qj_directSelect">
-						<s:property value="tcType"/>
-					</div>
-				</div>
-				<div class="qj_whitediv">
-					<div class="qj_label">
-						<p>资费标准</p>
-					</div>
-					<div class="qj_directSelect">
-						<s:property value="tcPrice"/>
-					</div>
-				</div>
-				
-				<div class="qj_whitediv">
-					<div class="qj_label">
-						<p>客户姓名</p>
-					</div>
-					<div class="qj_textfield">
-						<input type="text" id="cname"></input>
-					</div>
-				</div>
-				<div class="qj_whitediv">
-					<div class="qj_label">
-						<p>套餐号码</p>
+						<p>手机号码</p>
 					</div>
 					<div class="qj_textfield">
 						<input type="number" id="mobile"></input>
 					</div>
 				</div>
+				<div class="qj_whitediv">
+					<div class="qj_label">
+						<p>户主姓名</p>
+					</div>
+					<div class="qj_textfield">
+						<input type="text" id="cname"></input>
+					</div>
+				</div>
+				
 				<!--  <div class="qj_whitediv">
 					<div class="qj_label">
 						<p>联系电话</p>
@@ -150,9 +135,42 @@
 				</div>
 				<div class="saleImg" id ="imageshow">
 				</div>
+				<!-- 按商品id自动分配套餐类型 -->
+				<div class="qj_whitediv">
+					<div class="qj_label">
+						<p>套餐类型</p>
+					</div>
+					<div class="qj_directSelect">
+						<s:property value="tcType"/>
+					</div>
+				</div>
+				<div class="qj_whitediv">
+					<div class="qj_label">
+						<p>业务档次</p>
+					</div>
+					<div class="qj_directSelect">
+						<s:property value="tcPrice"/>
+					</div>
+				</div>
+				<div class="qj_whitediv">
+					<div class="qj_label">
+						<p>活动内容</p>
+					</div>
+					<div class="qj_directSelect">
+						<s:property value="tcPrice2"/>
+					</div>
+				</div>
+				<div class="qj_whitediv">
+					<div class="qj_label">
+						<p>每月返还</p>
+					</div>
+					<div class="qj_directSelect">
+						<s:property value="tcPrice3"/>
+					</div>
+				</div>
 				<div class="qj_whitedowndiv">
 					<div class="qj_label">
-						<p>签约周期</p>
+						<p>合约期</p>
 					</div>
 					<div class="qj_directSelect">
 						<s:property value="tcPeroid"/>
@@ -178,12 +196,6 @@
 					</p>
 				</div>
 				
-				<div class="qj_normal">
-					<hr style="height: 1px; background-color: #ccc; border: 0; margin: 0.6em; ">
-					<p>
-						 奇杰通信专营店
-					</p>
-				</div>
 			</div>
 		</div>
 		<div data-role="dialog" id="info_dialog" class="qj_infodialog">

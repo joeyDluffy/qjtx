@@ -33,11 +33,13 @@
 			var orderprice="0.01";
 			var ordertime;
 			var service_type;
-			var package_name;
+			var package_name='<s:property value="tcType"/>';
 			var monthly_fee;
+			var monthly_fee2;
+			var monthly_fee3;
 			var broadband_rat;
 			var package_price;
-			var contract_period;
+			var contract_period='<s:property value="tcPeroid"/>';
 			var package_details;
 			var mobile;
 			var id_number;
@@ -71,69 +73,26 @@
 			-->
 			<div role="main" class="qj_content">
 				<div style="margin-top:.8em; margin-bottom:1.5em;">
-					<a id="showInfoDlg" href="#" title="套餐详细" style="margin-left:.5em; font-size:15px;" >4G签约赠话费详情</a>
-					<a id="showInfoDlg2" href="#" title="套餐详细" style="margin-left:.5em; font-size:15px;" >移动飞享套餐详情</a>
+					<!--<a id="showInfoDlg" href="#" title="套餐详细" style="margin-left:.5em; font-size:15px;" >4G签约赠话费详情</a>
+					<a id="showInfoDlg2" href="#" title="套餐详细" style="margin-left:.5em; font-size:15px;" >移动飞享套餐详情</a>-->
 					<!--  <hr style="height: 1px; background-color: #ccc; border: 0; margin: 0.5em;">-->
 				</div>
 				
- 				<div class="sys_item_spec" style="width: 100%; border-top: 1px solid #ddd; float: left;"> 
-				        
-						<dl id="package" class="clearfix iteminfo_parameter sys_item_specpara">
-							<dt>套餐类型</dt>
-							<dd>
-								<ul class="sys_spec_text">
-									<li data-aid="4G签约赠话费"><a href="javascript:;" title="4G签约赠话费">4G签约赠话费</a><i></i></li>
-									<li data-aid="移动飞享套餐"><a href="javascript:;" title="移动飞享套餐">移动飞享套餐</a><i></i></li>
-								</ul>
-				
-							</dd>
-						</dl>
-						<dl id="fee1" class="clearfix iteminfo_parameter sys_item_specpara" style="display: none;">
-							<dt>资费标准</dt>
-							<dd>
-								<ul class="sys_spec_text">
-									<li data-aid="58元"><a href="javascript:;" title="58元">58元</a><i></i></li>
-									<li data-aid="88元"><a href="javascript:;" title="88元">88元</a><i></i></li>
-									<li data-aid="108元"><a href="javascript:;" title="108元">108元</a><i></i></li>
-									<li data-aid="128元"><a href="javascript:;" title="128元">128元</a><i></i></li>
-									<li data-aid="158元"><a href="javascript:;" title="158元">158元</a><i></i></li>
-									<li data-aid="188元"><a href="javascript:;" title="188元">188元</a><i></i></li>
-									<li data-aid="228元"><a href="javascript:;" title="228元">228元</a><i></i></li>
-									<li data-aid="288元"><a href="javascript:;" title="288元">288元</a><i></i></li>
-									<li data-aid="388元"><a href="javascript:;" title="388元">388元</a><i></i></li>
-								</ul>
-				
-							</dd>
-						</dl>
-						<dl id="fee2" class="clearfix iteminfo_parameter sys_item_specpara" style="display: none;">
-							<dt>资费标准</dt>
-							<dd>
-								<ul class="sys_spec_text">
-									<li data-aid="58元"><a href="javascript:;" title="58元">58元</a><i></i></li>
-									<li data-aid="88元"><a href="javascript:;" title="88元">88元</a><i></i></li>
-									<li data-aid="108元"><a href="javascript:;" title="108元">108元</a><i></i></li>
-									<li data-aid="138元"><a href="javascript:;" title="138元">138元</a><i></i></li>
-									<li data-aid="158元"><a href="javascript:;" title="158元">158元</a><i></i></li>
-								</ul>
-				
-							</dd>
-						</dl>
-						
-				</div>
+
 				<div class="qj_whitediv">
 					<div class="qj_label">
-						<p>客户姓名</p>
-					</div>
-					<div class="qj_textfield">
-						<input type="text" id="cname"></input>
-					</div>
-				</div>
-				<div class="qj_whitediv">
-					<div class="qj_label">
-						<p>套餐号码</p>
+						<p>手机号码</p>
 					</div>
 					<div class="qj_textfield">
 						<input type="number" id="mobile"></input>
+					</div>
+				</div>
+				<div class="qj_whitediv">
+					<div class="qj_label">
+						<p>户主姓名</p>
+					</div>
+					<div class="qj_textfield">
+						<input type="text" id="cname"></input>
 					</div>
 				</div>
 				<!--  <div class="qj_whitediv">
@@ -176,9 +135,78 @@
 				</div>
 				<div class="saleImg" id ="imageshow">
 				</div>
-				<div class="qj_whitedowndiv">
+				
+					<div class="qj_whitediv">
+						<div class="qj_label">
+							<p>套餐类型</p>
+						</div>
+						<div class="qj_directSelect">
+							<s:property value="tcType"/>
+						</div>
+					</div>
+ 				<div class="sys_item_spec" style="width: 100%; border-top: 1px solid #ddd; float: left;"> 
+				        
+						<!--<dl id="package" class="clearfix iteminfo_parameter sys_item_specpara">
+							<dt>套餐类型</dt>
+							<dd>
+								<ul class="sys_spec_text">
+									<li data-aid="4G签约赠话费"><a href="javascript:;" title="4G签约赠话费">4G签约赠话费</a><i></i></li>
+									<li data-aid="移动飞享套餐"><a href="javascript:;" title="移动飞享套餐">移动飞享套餐</a><i></i></li>
+								</ul>
+				
+							</dd>
+						</dl>-->
+						<dl id="fee1" class="clearfix iteminfo_parameter sys_item_specpara" style="display: none;">
+							<dt>业务档次</dt>
+							<dd>
+								<ul class="sys_spec_text">
+									<li data-aid="58元"><a href="javascript:;" title="58元">58元</a><i></i></li>
+									<li data-aid="88元"><a href="javascript:;" title="88元">88元</a><i></i></li>
+									<li data-aid="108元"><a href="javascript:;" title="108元">108元</a><i></i></li>
+									<li data-aid="128元"><a href="javascript:;" title="128元">128元</a><i></i></li>
+									<li data-aid="158元"><a href="javascript:;" title="158元">158元</a><i></i></li>
+									<li data-aid="188元"><a href="javascript:;" title="188元">188元</a><i></i></li>
+									<li data-aid="228元"><a href="javascript:;" title="228元">228元</a><i></i></li>
+									<li data-aid="288元"><a href="javascript:;" title="288元">288元</a><i></i></li>
+									<!--  <li data-aid="388元"><a href="javascript:;" title="388元">388元</a><i></i></li>-->
+								</ul>
+				
+							</dd>
+						</dl>
+						<dl id="fee2" class="clearfix iteminfo_parameter sys_item_specpara" style="display: none;">
+							<dt>业务档次</dt>
+							<dd>
+								<ul class="sys_spec_text">
+									<li data-aid="58元"><a href="javascript:;" title="58元">58元</a><i></i></li>
+									<li data-aid="88元"><a href="javascript:;" title="88元">88元</a><i></i></li>
+									<li data-aid="108元"><a href="javascript:;" title="108元">108元</a><i></i></li>
+									<li data-aid="138元"><a href="javascript:;" title="138元">138元</a><i></i></li>
+									<li data-aid="158元"><a href="javascript:;" title="158元">158元</a><i></i></li>
+								</ul>
+				
+							</dd>
+						</dl>
+						
+				</div>
+				<div class="qj_whitediv">
 					<div class="qj_label">
-						<p>签约周期</p>
+						<p>活动内容</p>
+					</div>
+					<div class="qj_directSelect" id="tcPrice2">
+						<s:property value="tcPrice2"/>
+					</div>
+				</div>
+				<div class="qj_whitediv">
+					<div class="qj_label">
+						<p>每月返还</p>
+					</div>
+					<div class="qj_directSelect" id="tcPrice3">
+						<s:property value="tcPrice3"/>
+					</div>
+				</div>
+				<div class="qj_whitediv">
+					<div class="qj_label">
+						<p>合约期</p>
 					</div>
 					<div class="qj_directSelect" id="qyzqtxt">
 						<s:property value="tcPeroid"/>
@@ -201,13 +229,6 @@
 				<div class="qj_normal">
 					<p>
 						注：为确保订单签约成功，请仔细填写，提交的信息真实有效！请保持联系电话畅通，您的专属客服会联系到您。
-					</p>
-				</div>
-				
-				<div class="qj_normal">
-					<hr style="height: 1px; background-color: #ccc; border: 0; margin: 0.6em; ">
-					<p>
-						 奇杰通信专营店
 					</p>
 				</div>
 			</div>

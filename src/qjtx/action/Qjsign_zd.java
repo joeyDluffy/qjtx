@@ -1,5 +1,8 @@
 package qjtx.action;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
@@ -106,7 +109,14 @@ public class Qjsign_zd extends ActionSupport {
 //			tcPeroid = "18个月";
 //			return "redirectSuccess";
 //		}
+		java.text.DateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date expired = sdf.parse("2017-10-21 18:00:00"); 
+		Date now = new Date();
+		if (now.after(expired)) {
+			return "errortime"; 
+		}
 		if (type == null || !itemId.equals(type.getItemid())) {
+			tcType="移动飞享套餐";
 			return SUCCESS;
 		} else {
 			tcType = type.getTctype();

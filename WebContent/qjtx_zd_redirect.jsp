@@ -46,7 +46,7 @@
 			var id_number;
 			var cname;
 			var installation_address;
-			
+		    var ischeckXY=0;
 			//function GetQueryString(name) {
 			//	   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
 			//	   var r = window.location.search.substr(1).match(reg);
@@ -66,14 +66,22 @@
 
 		
 		<div data-role="page" data-theme="a" id="qjOrderPage">
-
+		<div style="position:fixed; top:0; left: 0;width: 100%; height: 40px; background: #FFFAB4;">
+		
+			<div class="qj_checkbox" style="margin-top:1em; margin-right:0em;" >
+				<img src="img/tkbz.svg" style="width:16px; height:16px;">
+			</div>
+			<div class="qj_checkbox_a" style="margin-top:1.3em;" >
+				<p style="color:#FF5000; text-shadow:none;">如果因系统原因等办理失败，立即全额退款</p>
+			</div>
+		</div>
 			<!--  
 			<div data-role="header" class="ui-imghk" align="center">
 				<img class="ui-divheightvanke" src="themes/images/qjtxlogo.png">
 			</div>
 			-->
 			<div role="main" class="qj_content">
-				<div style="margin-top:.8em; margin-bottom:1.5em;">
+				<div style="margin-top:40px; margin-bottom:1.5em;">
 					<!--<a id="showInfoDlg" href="#" title="套餐详细" style="margin-left:.5em; font-size:15px;" >4G签约赠话费详情</a>
 					<a id="showInfoDlg2" href="#" title="套餐详细" style="margin-left:.5em; font-size:15px;" >移动飞享套餐详情</a>-->
 					<!--  <hr style="height: 1px; background-color: #ccc; border: 0; margin: 0.5em;">-->
@@ -83,7 +91,7 @@
 						<p>手机号码</p>
 					</div>
 					<div class="qj_textfield">
-						<input type="number" id="mobile"></input>
+						<input type="number" id="mobile" placeholder="请输入办理手机号码（必填）"></input>
 					</div>
 				</div>
 				<div class="qj_whitediv">
@@ -91,7 +99,7 @@
 						<p>户主姓名</p>
 					</div>
 					<div class="qj_textfield">
-						<input type="text" id="cname"></input>
+						<input type="text" id="cname" placeholder="请输入办理人姓名（必填）"></input>
 					</div>
 				</div>
 				
@@ -103,24 +111,24 @@
 						<input type="number" id="tel" placeholder="客服人员联系用--9:00~18:00"></input>
 					</div>
 				</div>-->
-				<div class="qj_whitediv">
+				<div class="qj_whitedivbottom">
 					<div class="qj_label">
 						<p>身份证号</p>
 					</div>
 					<div class="qj_textfield">
-						<input type="text" id="id_number"></input>
+						<input type="text" id="id_number" placeholder="请输入办理人身份证（必填）"></input>
 					</div>
 					
 				</div>
-				<div class="saleImg" style="height:60px; padding-top:15px;">
+				<div class="saleImgDown" style="height:60px; padding-top:15px;">
 			        <p style="margin-left:.5em">
 							身份证扫描/拍摄文件:
 					</p>
-					<p style="font-size:15px; color:#999999; margins-bottom:0px">
+					<p style="font-size:12px; color:#999999; margins-bottom:0px">
 							(请上传办理号主清晰无遮挡的正反面照片，可传多个文件)
 					</p>
 				</div>
-				<div class="saleImg qj_file">
+				<div class="saleImgDown qj_file">
 			        <input id="saleImg1" type="file" accept="image/* multiple" multiple = "multiple" name="saleImg1"/>
 					<span class="custorm-style">
 						<span class="left-button" onClick="selectFile()">上传文件</span>
@@ -128,7 +136,7 @@
 					</span>
 				</div>
 				<div class="saleImgDown" >
-			        <p style="font-size:15px; margin-left:1em">
+			        <p style="font-size:15px;">
 							上传预览：<a id="clear" href="#" class="">清除文件</a>
 					</p>
 					
@@ -136,59 +144,56 @@
 				<div class="saleImg" id ="imageshow">
 				</div>
 				<!-- 按商品id自动分配套餐类型 -->
-				<div class="qj_whitediv">
-					<div class="qj_label">
-						<p>套餐类型</p>
+				<div class="qj_whitedivnoline">
+					<div class="qj_labelselect">
+						<p>套餐类型:</p>
 					</div>
 					<div class="qj_directSelect">
 						<s:property value="tcType"/>
 					</div>
 				</div>
-				<div class="qj_whitediv">
-					<div class="qj_label">
-						<p>业务档次</p>
+				<div class="qj_whitedivnoline">
+					<div class="qj_labelselect">
+						<p>业务档次:</p>
 					</div>
 					<div class="qj_directSelect">
 						<s:property value="tcPrice"/>
 					</div>
 				</div>
-				<div class="qj_whitediv">
-					<div class="qj_label">
-						<p>活动内容</p>
+				<div class="qj_whitedivnoline">
+					<div class="qj_labelselect">
+						<p>活动内容:</p>
 					</div>
 					<div class="qj_directSelect">
 						<s:property value="tcPrice2"/>
 					</div>
 				</div>
-				<div class="qj_whitediv">
-					<div class="qj_label">
-						<p>每月返还</p>
+				<div class="qj_whitedivnoline">
+					<div class="qj_labelselect">
+						<p>每月返还:</p>
 					</div>
 					<div class="qj_directSelect">
 						<s:property value="tcPrice3"/>
 					</div>
 				</div>
-				<div class="qj_whitedowndiv">
-					<div class="qj_label">
-						<p>合约期</p>
+				<div class="qj_whitedivnoline">
+					<div class="qj_labelselect">
+						<p>合约期:</p>
 					</div>
 					<div class="qj_directSelect">
 						<s:property value="tcPeroid"/>
 					</div>
 				</div>
 				<div class="qj_checkboxdiv">
-					<div class="qj_checkbox" style="margin-top:.9em; margin-right:0em;" >
-						<input id="XYchkbox" type="checkbox"></input>
+					<div class="qj_checkbox" style="margin-top:1em; margin-right:0em;" >
+						<img id = "chcbox1" src="img/unagree.svg" style="width:16px; height:16px;">
+						<img id = "chcbox2" src="img/agree.svg" style="width:16px; height:16px; display:none;">
 					</div>
-					<div class="qj_checkbox_a" style="margin-top:.6em;" >
-						<a id="showXYDlg" href="#" title="用户协议" style="margin-left:.5em; font-size:15px;" >已确认用户协议</a>
+					<div class="qj_checkbox_a" style="margin-top:1.1em;" >
+						我已阅读并同意<a id="showXYDlg" href="#" title="用户协议" style="margin-left:.1em; font-size:12px;" >《合约协议》</a>
 					</div>
 				</div>
-				
-				<div class="saleImgDown">
-					<a id="ordersubmit" style="font-weight:normal;" href="#"
-						class="qj_button ui-btn-corner-all ui-btn ui-shadow">确认下单</a>
-				</div>
+
 
 				<div class="qj_normal">
 					<p>
@@ -196,6 +201,16 @@
 					</p>
 				</div>
 				
+			</div>
+			<div style="position:fixed; bottom:0px; left: 0;width: 100%; height: 60px; background: #FFF;">
+			
+				<div class="qj_next" >
+					<img src="img/wangwang.svg" style="width:25px; height:25px; margin:auto;">
+				</div>
+				<div class="qj_next_a">
+					<a id="ordersubmit" style="font-weight:normal; padding:0px; margin:0px" href="#"
+						class="qj_button ui-btn-corner-all ui-btn">立即办理</a>
+				</div>
 			</div>
 		</div>
 		<div data-role="dialog" id="info_dialog" class="qj_infodialog">

@@ -88,7 +88,12 @@ public class QjcommitOrder extends ActionSupport {
 			//参数解析传入：用户混淆id，商品id，总价，插件id
 			req.setMixUserId(qjorderdata.getMix_user_id());
 			req.setItemId(Long.valueOf(qjorderdata.getItem_id()));
-			req.setTotalPrice("0.01");
+			if ("contractPhone".equals(qjorderdata.getService_type())) {
+				req.setTotalPrice("599");
+			} else {
+				req.setTotalPrice("0.01");
+			}
+			
 			req.setExpiryDate(expiryDate);
 	//		req.setExpiryDate(StringUtils.parseDateTime("2016-07-29 12:12:12"));
 			req.setPluginInstanceId(Long.valueOf(qjorderdata.getInstance_id()));

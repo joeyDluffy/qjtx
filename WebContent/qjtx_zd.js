@@ -54,6 +54,8 @@ $(document).ready(function(){
 					monthly_fee="";
 					monthly_fee2="";
 					monthly_fee3="";
+					$("#tcPrice2").html("");
+					$("#tcPrice3").html("");
 				}else{
 					$(this).addClass("selected").siblings("li").removeClass("selected");
 					//i.attr("data-attrval",$(this).attr("data-aid"))
@@ -112,6 +114,8 @@ $(document).ready(function(){
 					monthly_fee="";
 					monthly_fee2="";
 					monthly_fee3="";
+					$("#tcPrice2").html("");
+					$("#tcPrice3").html("");
 				}else{
 					$(this).addClass("selected").siblings("li").removeClass("selected");
 					//i.attr("data-attrval",$(this).attr("data-aid"))
@@ -179,7 +183,6 @@ $(document).ready(function(){
     });  
 
 	pdatalist = new Array();
-	$("#fee1").css('display','');
 	if (package_name=='4G签约赠话费') {
 		$("#fee1").css('display','');
 		service_type="contractPhone";
@@ -228,7 +231,30 @@ $(document).ready(function(){
 		var sFileName = $(this).val().substr((index+1));
 		$("#rightText").html(sFileName+'等共'+this.files.length+'个文件');
 	});
-
+	$("#chcbox1").bind(
+			"click", function() {
+				if (ischeckXY==0) {
+					ischeckXY=1;
+					$("#chcbox1").css('display','none');
+					$("#chcbox2").css('display','');
+				} else {
+					ischeckXY=0;
+					$("#chcbox2").css('display','none');
+					$("#chcbox1").css('display','');
+				}
+			});
+	$("#chcbox2").bind(
+			"click", function() {
+				if (ischeckXY==0) {
+					ischeckXY=1;
+					$("#chcbox1").css('display','none');
+					$("#chcbox2").css('display','');
+				} else {
+					ischeckXY=0;
+					$("#chcbox2").css('display','none');
+					$("#chcbox1").css('display','');
+				}
+			});
 	$("#clear").bind(
 			"click", function() {
 				pdatalist.shift();
@@ -366,10 +392,11 @@ $(document).ready(function(){
 //		    	alert("请上传身份证正反面扫描件/清晰照片！"); 
 				return;
 		    }
-		    if (!$("#XYchkbox").get(0).checked) { 
+		    if(ischeckXY==0){
 		    	showInputErrorDlg("请勾选确认用户协议");
 		    	return;
 		    }
+
 		    package_details="协议内容: "+package_name+" "+monthly_fee+" "+monthly_fee2+" "+monthly_fee3+" "+broadband_rat+" "+contract_period;
 			showLoader();
 			

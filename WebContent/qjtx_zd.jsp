@@ -30,7 +30,7 @@
 			var trade_token='<s:property value="tradeToken"/>';
 			var instance_id='<s:property value="instance_id"/>';
 			var merchant_order_id="23759189";
-			var orderprice="0.01";
+			var orderprice='<s:property value="tcPrice"/>';
 			var ordertime;
 			var service_type;
 			var package_name='<s:property value="tcType"/>';
